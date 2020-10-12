@@ -64,7 +64,38 @@ print("Run time [s]: ",end-start)
 This is because processes on a GPU run *asynchronously*. This means that when we send a process to the GPU it doesn't necessarily run immediately, instead it joins a queue. By calling the `torch.cuda.synchronize` function before specifying the `end` of our timing test, we can ensure that all of the processes on the GPU have actually run before we calculate the run time. 
 
 
-# Code Example
+> ## Challenge
+> Calculate the run time for the training loop in your code.
+> 
+> > ## Solution
+> > 
+> > ~~~
+> > model = model.to(device)
+> >
+> > start = time.time()
+> > for batch, (x_train, y_train) in enumerate(train_loader):
+> >         
+> >         x_train, y_train = x_train.to(device), y_train.to(device)
+> >         
+> >         model.zero_grad()
+> >         pred, prob = model(x_train)
+> >         
+> >         acc = (prob.argmax(dim=-1) == y_train).to(torch.float32).mean()
+> >         train_accs.append(acc.mean().item())
+> >         
+> >         loss = F.cross_entropy(pred, y_train)
+> >         train_loss.append(loss.item())
+> >        
+> >         loss.backward()
+> >         optimizer.step()
+> >
+> > if use_cuda: torch.cuda.synchronize()    
+> > end = time.time()
+> > print("Run time [s]: ",end-start)
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
 
 
 
