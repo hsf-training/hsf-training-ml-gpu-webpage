@@ -38,10 +38,14 @@ model = Classifier_MLP(in_dim=input_size, hidden_dim=hidden_size, out_dim=num_cl
 
 # Sending the Data to the GPU
 
+The second requirement for running the training loop on the GPU is to move the training data. This can be done in exactly the same way as for the model, i.e.
+
 ~~~
 x_train, y_train = x_train.to(device), y_train.to(device)
 ~~~
 {: .language-python}
+
+Due to the memory limitations of GPUs compared with CPUs, the data should be moved in *mini-batches*, i.e. you shouldn't send your whole training data set to the GPU at the beginning of your code. Instead you should only send the data within a single batch iteratively during the training. 
 
 > ## Challenge
 > Adapt the training loop from the ML tutorial to use the GPU.
