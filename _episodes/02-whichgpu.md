@@ -1,5 +1,5 @@
 ---
-title: "Is a GPU available"
+title: "Is a GPU available?"
 teaching: 20
 exercises: 0
 questions:
