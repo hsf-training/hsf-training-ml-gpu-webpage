@@ -13,12 +13,26 @@ keypoints:
 - "TensorFlow Playground is a cool place to visualize neural networks!" 
 ---
 
+Once you have specified which device you want PyTorch to use then you can specify which parts of the computation are done on that device. Everything will run on the CPU as standard, so this is really about specifying which parts of the code you want to send to the GPU. For a neural network, training a model is typically the most computationally expensive part of your code and so that's where GPUs are normally utilised. 
+
+
 # Sending the model to the GPU
+
+In order to train a model on the GPU it is first necessary to send the model itself to the GPU. This is necessary because the trainable parameters of the model need to be on the GPU so that they can be applied and updated in each forward-backward pass. In PyTorch sending the model to the GPU is very simple:
+
+~~~
+model = MyModel().to(device=device)
+~~~
+{: .language-python}
+
+For the example from the ML tutorial this would look like:
 
 ~~~
 model = Classifier_MLP(in_dim=input_size, hidden_dim=hidden_size, out_dim=num_classes).to(device=device)
 ~~~
 {: .language-python}
+
+
 
 # Sending the Data to the GPU
 
