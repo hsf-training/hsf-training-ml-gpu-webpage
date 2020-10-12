@@ -6,8 +6,8 @@ questions:
 - "Will the ML performance of my model improve when I use the GPU?"
 - "Will the computational performance of my model improve when I use the GPU?"
 objectives:
-- "Provide links to tutorials and textbooks that will help you get better at Python."
-- "Provide links to machine learning library documentation."
+- "Learn how to calculate run time when using a GPU."
+- "Understand under which circumstances a GPU will improve performance."
 keypoints:
 - "Using a GPU will not improve your ML performance."
 - "Using a GPU will improve your run time only under certain circumstances."
