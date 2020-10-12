@@ -74,6 +74,14 @@ Due to the memory limitations of GPUs compared with CPUs, the data should be mov
 > {: .solution}
 {: .challenge}
 
+Remember that if your model is on the GPU then the data in your validation loop will also need to be sent to the GPU. Otherwise you will see an error that looks like this:
+
+~~~
+
+~~~
+{: .language-bash}
+
+
 ### Using the DataLoader Class with the GPU
 
 If you are using the PyTorch `DataLoader()` class to load your data in each training loop then there are some keyword arguments you can set to speed up the data loading on the GPU. These should be passed to the class when you set up the data loader.
@@ -88,7 +96,9 @@ train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, sh
 
 ### GPU/CPU data mis-matches
 
-Remember that once you have sent a particular set of data to the GPU, if you want to perform a calculation on those data using the CPU then you will need to move it back again. One of the most common errors you will see when using a GPU is a mismatch between the locations of different data being used in a function. You can find out which device your data are on at different points in the code by using the `device` property:
+Remember that once you have sent a particular set of data to the GPU, if you want to perform a calculation on those data using the CPU then you will need to move it back again. One of the most common errors you will see when using a GPU is a mismatch between the locations of different data being used in a function. This is what we saw above when the validation data were not moved onto the GPU.
+
+You can find out which device your data are on at different points in the code by using the `device` property:
 
 ~~~
 print(x_train.device)
