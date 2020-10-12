@@ -1,5 +1,5 @@
 ---
-title: "Neural Networks"
+title: "Using the GPU"
 teaching: 5
 exercises: 15
 questions:
