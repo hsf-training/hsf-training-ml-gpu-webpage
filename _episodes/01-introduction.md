@@ -3,8 +3,8 @@ title: "Introduction"
 teaching: 15
 exercises: 0
 questions:
-- "What is machine learning?"
-- "What role does machine learning have in high energy physics?"
+- "What is a GPU?"
+- "What role do GPUs play in machine learning?"
 - "What should I do if I want to get good at machine learning?"
 objectives:
 - "Discuss the general learning task in machine learning."
