@@ -9,8 +9,8 @@ objectives:
 - "Examine the structure of a fully connected sequential neural network."
 - "Look at the TensorFlow neural network Playground to visualize how a neural network works."
 keypoints:
-- "Neural networks consist of an input layer, hidden layers and an output layer."
-- "TensorFlow Playground is a cool place to visualize neural networks!" 
+- "Both the model and the data must be moved onto the GPU for training."
+- "Data should be moved onto the GPU in batches." 
 ---
 
 Once you have selected which device you want PyTorch to use then you can specify which parts of the computation are done on that device. Everything will run on the CPU as standard, so this is really about deciding which parts of the code you want to send to the GPU. For a neural network, training a model is typically the most computationally expensive part of your code and so that's where GPUs are normally utilised. To run a training loop in this way requires that two things are passed to the GPU: (i) the model itself and (ii) the training data.
