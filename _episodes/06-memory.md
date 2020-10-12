@@ -1,10 +1,10 @@
 ---
-title: "Data Preprocessing for Machine Learning"
+title: "Memory considerations"
 teaching: 10
 exercises: 10
 questions:
-- "How must we organize our data such that it can be used in the machine learning libraries?"
-- "Are we ready for machine learning yet?!"
+- "Why do I need to send my data to the GPU in batches?"
+- "How can I monitor the GPU memory useage?"
 objectives:
 - "Prepare the dataset for machine learning."
 - "Get excited for machine learning!"
