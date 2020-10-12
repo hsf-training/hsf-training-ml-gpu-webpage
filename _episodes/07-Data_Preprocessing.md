@@ -99,11 +99,23 @@ X_train = scaler.transform(X_train)
 > > ## Solution
 > > 
 > > ~~~
-> > X_test = scaler.transform(X_test)
-> > X = scaler.transform(X)
+> > for batch, (x_train, y_train) in enumerate(train_loader):
+> >         
+> >         x_train, y_train = x_train.to(device), y_train.to(device)
+> >         
+> >         model.zero_grad()
+> >         pred, prob = model(x_train)
+> >         
+> >         acc = (prob.argmax(dim=-1) == y_train).to(torch.float32).mean()
+> >         train_accs.append(acc.mean().item())
+> >         
+> >         loss = F.cross_entropy(pred, y_train)
+> >         train_loss.append(loss.item())
+        
+> >         loss.backward()
+> >         optimizer.step()
 > > ~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
 
-Now we are ready to examine various models $$f$$ for predicting whether an event corresponds to a Higgs decay or a background event.
