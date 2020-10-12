@@ -67,7 +67,6 @@ will set the device to the GPU if one is available and to the CPU if there isn't
 
 ~~~
 device = torch.device("cuda:2" if use_cuda else "cpu")
-print("Device: ",device)
 ~~~
 {: .language-python}
 
