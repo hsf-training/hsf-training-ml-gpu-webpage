@@ -1,10 +1,10 @@
 ---
-title: "Resources"
+title: "Performance comparisons"
 teaching: 15
 exercises: 0
 questions:
-- "Where should I go if I want to get better at Python?"
-- "What are the machine learning libraries in Python?"
+- "Will the ML performance of my model improve when I use the GPU?"
+- "Will the computational performance of my model improve when I use the GPU?"
 objectives:
 - "Provide links to tutorials and textbooks that will help you get better at Python."
 - "Provide links to machine learning library documentation."
