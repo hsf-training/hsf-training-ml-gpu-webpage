@@ -41,6 +41,8 @@ print("Run time [s]: ",end-start)
 
 ### Timing tests when using a GPU
 
+When we are timing PyTorch processes that use a GPU it's necessary to add one extra line of code into this loop:
+
 ~~~
 import time
 start = time.time()
@@ -52,6 +54,8 @@ end = time.time()
 print("Run time [s]: ",end-start)
 ~~~
 {: .language-python}
+
+This is because processes on a GPU run *asynchronously*. This means that when we send a process to the GPU it doesn't necessarily run immediately, instead it joins a queue. By calling the `torch.cuda.synchronize` function before specifying the `end` of our timing test, we can ensure that all of the processes on the GPU have actually run before we calculate the run time. 
 
 
 # Code Example
