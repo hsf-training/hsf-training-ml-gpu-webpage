@@ -1,10 +1,10 @@
 ---
-title: "Model Comparison"
+title: "Going Parallel"
 teaching: 10
 exercises: 20
 questions:
-- "How do you use the scikit-learn and TensorFlow packages for machine learning?"
-- "How do I see whether my machine learning model is doing alright?"
+- "How can I use multiple GPUs at once?"
+- "What are the limitations of multi-GPU machine learning?"
 objectives:
 - "Check how well our random forest is doing."
 - "Check how well our simple neural network is doing."
