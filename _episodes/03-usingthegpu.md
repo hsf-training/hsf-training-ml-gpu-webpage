@@ -26,3 +26,26 @@ model = Classifier_MLP(in_dim=input_size, hidden_dim=hidden_size, out_dim=num_cl
 x_train, y_train = x_train.to(device), y_train.to(device)
 ~~~
 {: .language-python}
+
+> > ## Solution
+> > 
+> > ~~~
+> > for batch, (x_train, y_train) in enumerate(train_loader):
+> >         
+> >         x_train, y_train = x_train.to(device), y_train.to(device)
+> >         
+> >         model.zero_grad()
+> >         pred, prob = model(x_train)
+> >         
+> >         acc = (prob.argmax(dim=-1) == y_train).to(torch.float32).mean()
+> >         train_accs.append(acc.mean().item())
+> >         
+> >         loss = F.cross_entropy(pred, y_train)
+> >         train_loss.append(loss.item())
+        
+> >         loss.backward()
+> >         optimizer.step()
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
