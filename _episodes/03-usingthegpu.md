@@ -27,6 +27,9 @@ x_train, y_train = x_train.to(device), y_train.to(device)
 ~~~
 {: .language-python}
 
+> ## Challenge
+> Adapt the training loop from the ML tutorial to use the GPU.
+> 
 > > ## Solution
 > > 
 > > ~~~
@@ -42,7 +45,7 @@ x_train, y_train = x_train.to(device), y_train.to(device)
 > >         
 > >         loss = F.cross_entropy(pred, y_train)
 > >         train_loss.append(loss.item())
-        
+> >        
 > >         loss.backward()
 > >         optimizer.step()
 > > ~~~
