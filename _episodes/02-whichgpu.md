@@ -5,7 +5,7 @@ exercises: 0
 questions:
 - "How do I find out if a GPU is available?"
 - "How can I determine the specifications of the GPU?"
-- "How do I tell my code to run on the GPU?"
+- "How do I select to use the GPU?"
 objectives:
 - "Discuss the role of data, models, and loss functions in machine learning."
 - "Discuss the role of gradient descent when optimizing a model."
