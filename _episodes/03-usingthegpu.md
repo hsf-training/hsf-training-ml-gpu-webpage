@@ -13,6 +13,16 @@ keypoints:
 - "TensorFlow Playground is a cool place to visualize neural networks!" 
 ---
 
-# Neural Network Theory Introduction
+# Sending the model to the GPU
 
+~~~
 model = Classifier_MLP(in_dim=input_size, hidden_dim=hidden_size, out_dim=num_classes).to(device=device)
+~~~
+{: .language-python}
+
+# Sending the Data to the GPU
+
+~~~
+x_train, y_train = x_train.to(device), y_train.to(device)
+~~~
+{: .language-python}
