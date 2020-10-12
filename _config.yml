@@ -10,7 +10,7 @@
 carpentry: "hsf"
 
 # Overall title for pages.
-title: "Machine Learning using GPUs"
+title: "Machine Learning on GPU"
 
 # Life cycle stage of the lesson
 # possible values: "pre-alpha", "alpha", "beta", "stable"
