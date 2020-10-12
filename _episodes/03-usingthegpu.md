@@ -6,8 +6,8 @@ questions:
 - "How do I send my data to the GPU?"
 - "How do I train my model on the GPU?"
 objectives:
-- "Examine the structure of a fully connected sequential neural network."
-- "Look at the TensorFlow neural network Playground to visualize how a neural network works."
+- "Learn how to move data between the CPU and the GPU."
+- "Be able to identify common errors when moving data."
 keypoints:
 - "Both the model and the data must be moved onto the GPU for training."
 - "Data should be moved onto the GPU in batches." 
