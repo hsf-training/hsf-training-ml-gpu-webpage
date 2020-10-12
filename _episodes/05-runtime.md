@@ -37,7 +37,7 @@ The `time.time()` function returns the time in seconds since January 1, 1970, 00
 import time
 start = time.time()
 
-# insert some code to do somthing here
+# insert some code to do something here
 
 end = time.time()
 print("Run time [s]: ",end-start)
@@ -53,7 +53,7 @@ When we are timing PyTorch processes that use a GPU it's necessary to add one ex
 import time
 start = time.time()
 
-# insert some code to do somthing here
+# insert some code to do something here
 
 if use_cuda: torch.cuda.synchronize()    # <---------------- extra line
 end = time.time()
