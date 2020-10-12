@@ -21,11 +21,11 @@ Once you have selected which device you want PyTorch to use then you can specify
 In order to train a model on the GPU it is first necessary to send the model itself to the GPU. This is necessary because the trainable parameters of the model need to be on the GPU so that they can be applied and updated in each forward-backward pass. In PyTorch sending the model to the GPU is very simple:
 
 ~~~
-model = MyModel().to(device=device)
+model = model.to(device=device)
 ~~~
 {: .language-python}
 
-For the example from the ML tutorial this would look like:
+You can also do this when you initialise your model. For the example from the ML tutorial this would look like:
 
 ~~~
 model = Classifier_MLP(in_dim=input_size, hidden_dim=hidden_size, out_dim=num_classes).to(device=device)
@@ -93,3 +93,37 @@ Remember that once you have sent a particular set of data to the GPU, if you wan
 print(x_train.device)
 ~~~
 {: .language-python}
+
+> ## Challenge
+> Check which device the probability output from your model is held on. Do the same with the calculated loss.
+> 
+> > ## Solution
+> > 
+> > ~~~
+> > for batch, (x_train, y_train) in enumerate(train_loader):
+> >         
+> >         x_train, y_train = x_train.to(device), y_train.to(device)
+> >         
+> >         model.zero_grad()
+> >         pred, prob = model(x_train)
+> >         print(prob.device)
+> >         
+> >         acc = (prob.argmax(dim=-1) == y_train).to(torch.float32).mean()
+> >         train_accs.append(acc.mean().item())
+> >         
+> >         loss = F.cross_entropy(pred, y_train)
+> >         train_loss.append(loss.item())
+> >         print(loss.device)
+> >
+> >         loss.backward()
+> >         optimizer.step()
+> > ~~~
+> > {: .language-python}
+> > You should see that both the outputs from the model and the calculated loss are still on the GPU. If you want to use these values on the CPU you will need to use (e.g.)
+> > ~~~
+> > prob = prob.to('cpu')
+> > loss = loss.to('cpu')
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
