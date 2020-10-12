@@ -1,5 +1,5 @@
 ---
-title: "Performance comparisons"
+title: "Run time comparisons"
 teaching: 15
 exercises: 0
 questions:
