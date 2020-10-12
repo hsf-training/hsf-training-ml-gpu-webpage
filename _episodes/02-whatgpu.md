@@ -1,5 +1,5 @@
 ---
-title: "Mathematical Foundations"
+title: "Is there a GPU available?"
 teaching: 20
 exercises: 0
 questions:
