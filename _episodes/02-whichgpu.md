@@ -20,13 +20,28 @@ keypoints:
  
 # Find out if a GPU is available
  
+The first thing you need to know when you're thinking of using a GPU is whether there is actually one available. There are many ways of checking this in Python depending on which libraries you are intending to use with your GPU. The [GPUtil library](https://pypi.org/project/GPUtil/) available for pip installation provides simple methods to check. For example:
+
+~~~
+import GPUtil
+GPUtil.getAvailable()
+~~~
+{: .language-python}
+
+will return a list of available GPUs. However, many libraries also have built in functionality to check whether a GPU compatble with that ibrary is available. For PyTorch this can be done using:
+
 ~~~
 import torch
 use_cuda = torch.cuda.is_available()
 ~~~
 {: .language-python}
 
+This command will return a boolean (True/False) letting you know if a GPU is available.
+
+
 # Find out the specifications of the GPU(s)
+
+There are a wide variety of GPUs available these days, so it's oftne useful to check the specifications of the GPU(s) that are avaiable to you. For example, the following lines of code will tell you (i) which version of CUDA the GPU(s) support, (ii) how many GPUs there are available, (iii) for a specific GPU, here `0`, what kind of GPU it is, and (iv) how much memory it has available in total.
 
 ~~~
 if use_cuda:
