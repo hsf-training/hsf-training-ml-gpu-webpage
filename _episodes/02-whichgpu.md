@@ -28,7 +28,7 @@ GPUtil.getAvailable()
 ~~~
 {: .language-python}
 
-will return a list of available GPUs. However, many libraries also have built in functionality to check whether a GPU compatble with that ibrary is available. For PyTorch this can be done using:
+will return a list of available GPUs. However, many libraries also have built in functionality to check whether a GPU compatible with that library is available. For PyTorch this can be done using:
 
 ~~~
 import torch
@@ -41,7 +41,7 @@ This command will return a boolean (True/False) letting you know if a GPU is ava
 
 # Find out the specifications of the GPU(s)
 
-There are a wide variety of GPUs available these days, so it's oftne useful to check the specifications of the GPU(s) that are avaiable to you. For example, the following lines of code will tell you (i) which version of CUDA the GPU(s) support, (ii) how many GPUs there are available, (iii) for a specific GPU, here `0`, what kind of GPU it is, and (iv) how much memory it has available in total.
+There are a wide variety of GPUs available these days, so it's oftne useful to check the specifications of the GPU(s) that are available to you. For example, the following lines of code will tell you (i) which version of CUDA the GPU(s) support, (ii) how many GPUs there are available, (iii) for a specific GPU (here `0`) what kind of GPU it is, and (iv) how much memory it has available in total.
 
 ~~~
 if use_cuda:
@@ -55,11 +55,21 @@ if use_cuda:
 
 # Selecting a GPU to use
 
+In PyTorch, you can use the `use_cuda` flag to specify which device you want to use. For example:
+
 ~~~
 device = torch.device("cuda" if use_cuda else "cpu")
-kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
 print("Device: ",device)
 ~~~
 {: .language-python}
+
+will set the device to the GPU if one is available and to the CPU if there isn't a GPU available. This means that you don't need to hard code changes into your code to use one or the other. If there are multiple GPUs available then you can specify a particular GPU using its index, e.g.
+
+~~~
+device = torch.device("cuda:2" if use_cuda else "cpu")
+print("Device: ",device)
+~~~
+{: .language-python}
+
 
 {% include links.md %}
