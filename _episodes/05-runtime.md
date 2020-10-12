@@ -20,12 +20,16 @@ keypoints:
 
 Although there are different ways to evaluate the computational performance of your code, for the purpose of this tutorial the main metric that you're probably interested in is **run time**. 
 
+An easy way to determine the run time for a particular section of code is to use the [Python time library](https://docs.python.org/3/library/time.html#time.time). 
+
 ~~~
 import time
 mytime = time.time()
 print(mytime)
 ~~~
 {: .language-python}
+
+The `time.time()` function returns the time in seconds since January 1, 1970, 00:00:00 (UTC). By itself it's not always super useful, but for wrapping a piece of code and calculating the elapsed time between the start and end of that code it's a nice and simple method for determining run time.
 
 ~~~
 import time
@@ -49,7 +53,7 @@ start = time.time()
 
 # insert some code to do somthing here
 
-if use_cuda: torch.cuda.synchronize()
+if use_cuda: torch.cuda.synchronize()    # <---------------- extra line
 end = time.time()
 print("Run time [s]: ",end-start)
 ~~~
