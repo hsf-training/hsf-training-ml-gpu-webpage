@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/hsf-training/hsf-training-ml-webpage.svg?branch=gh-pages)](https://travis-ci.org/hsf-training/hsf-training-ml-webpage)
 
-# Machine Learning for Particle Physics
+# Machine Learning on GPU
 
 [![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
 
