@@ -9,8 +9,9 @@ objectives:
 - "Provide links to tutorials and textbooks that will help you get better at Python."
 - "Provide links to machine learning library documentation."
 keypoints:
-- "NumPy and pandas are the main libraries for scientific computing."
-- "scikit-learn and TensorFlow are two good options for machine learning in Python."
+- "Using a GPU will not improve your ML performance."
+- "Using a GPU will improve your run time only under certain circumstances."
+- "GPU processes are asynchronous."
 ---
 
 # Model performance
