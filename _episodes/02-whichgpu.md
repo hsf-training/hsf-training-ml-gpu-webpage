@@ -11,9 +11,8 @@ objectives:
 - "Discuss the role of gradient descent when optimizing a model."
 - "Alert you to the dangers of overfitting!"
 keypoints:
-- "In a particular machine learning problem, one needs an adequate dataset, a reasonable model, and a corresponding loss function. The choice of model and loss function needs to depend on the dataset."
-- "Gradient descent is a procedure used to optimize a loss function corresponding to a specific model and dataset."
-- "Beware of overfitting!"
+- "A GPU needs to be available in order for you to use it."
+- "Not all GPUs are the same."
 ---
  
  In this section we will establish the mathematical foundations of machine learning. We will define three important quantities: **data**, **models**, and **loss functions**. We will then discuss the optimization procedure known as **gradient descent**.
