@@ -72,3 +72,10 @@ Due to the memory limitations of GPUs compared with CPUs, the data should be mov
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
+
+Remember that once you have sent a particular set of data to the GPU, if you want to perform a calculation on those data using the CPU then you will need to move it back again. One of the most common errors you will see when using a GPU is a mismatch between the locations of different data being used in a function. You can find out which device your data are on at different points in the code by using the `device` property:
+
+~~~
+print(x_train.device)
+~~~
+{: .language-python}
