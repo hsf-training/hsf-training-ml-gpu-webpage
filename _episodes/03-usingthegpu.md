@@ -53,6 +53,7 @@ Due to the memory limitations of GPUs compared with CPUs, the data should be mov
 > > ## Solution
 > > 
 > > ~~~
+> > model = model.to(device)
 > > for batch, (x_train, y_train) in enumerate(train_loader):
 > >         
 > >         x_train, y_train = x_train.to(device), y_train.to(device)
