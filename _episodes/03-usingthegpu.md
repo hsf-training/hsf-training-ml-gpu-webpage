@@ -73,6 +73,20 @@ Due to the memory limitations of GPUs compared with CPUs, the data should be mov
 > {: .solution}
 {: .challenge}
 
+### Using the DataLoader Class with the GPU
+
+If you are using the PyTorch `DataLoader()` class to load your data in each training loop then there are some keyword arguments you can set to speed up the data loading on the GPU. These should be passed to the class when you set up the data loader.
+
+~~~
+kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
+train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True, **kwargs)
+~~~
+{: .language-python}
+
+*Pinned memory* is used as a staging area for data transfers between the CPU and the GPU. By setting `pin_memory=True` when we initialise the data loader we are directly allocating space in pinned memory. This avoids the time cost of transfering data from the CPU to the pinned staging area every time we move the data onto the GPU later in the code. You can read more about pinned memory on the [nvidia blog](https://developer.nvidia.com/blog/how-optimize-data-transfers-cuda-cc/). 
+
+### GPU/CPU data mis-matches
+
 Remember that once you have sent a particular set of data to the GPU, if you want to perform a calculation on those data using the CPU then you will need to move it back again. One of the most common errors you will see when using a GPU is a mismatch between the locations of different data being used in a function. You can find out which device your data are on at different points in the code by using the `device` property:
 
 ~~~
