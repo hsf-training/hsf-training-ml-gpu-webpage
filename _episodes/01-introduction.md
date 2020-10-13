@@ -50,6 +50,10 @@ The matrix operations that GPus are optimised for are exactly what happens in th
 
 However, if you're *not* using a neural network as your machine learning model you may find that a GPU doesn't improve the computation time. It's the large matrix multiplications required for neural networks that really make GPUs useful. Likewise if you are using a neural network but its very small then again a GPU will not be any faster than a CPU - in fact it might even be slower. 
 
+# Using PyTorch with a GPU
+
+In the [Introduction to Machine Learning lesson]() a neural network was created using PyTorch to classify particle physics events. In this lesson we will build on that neural network in order to demonstrate how it can be implemented on GPU and discuss some of the more general peculiarities specific to training neural networks on GPU.
+
 
 {% include links.md %}
 
