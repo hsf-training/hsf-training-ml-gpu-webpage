@@ -36,7 +36,7 @@ model = Classifier_MLP(in_dim=input_size, hidden_dim=hidden_size, out_dim=num_cl
 > In older PyTorch versions, sending things to the GPU was specified in a less flexible way. Instead of using the `.to(device=device)` syntax, one used `.cuda()` to send things to the GPU and `.cpu()` to send things to the CPU. Although this is deprecated it will still work with more recent versions of PyTorch, and is often seen in older tutorials.
 {: .callout}
 
-# Sending the Data to the GPU
+# Sending the data to the GPU
 
 The second requirement for running the training loop on the GPU is to move the training data. This can be done in exactly the same way as for the model, i.e.
 
@@ -74,13 +74,14 @@ Due to the memory limitations of GPUs compared with CPUs, the data should be mov
 > {: .solution}
 {: .challenge}
 
-Remember that if your model is on the GPU then the data in your validation loop will also need to be sent to the GPU. Otherwise you will see an error that looks like this:
-
-~~~
-
-~~~
-{: .language-bash}
-
+> ## Common Errors
+> Remember that if your model is on the GPU then the data in your validation loop will also need to be sent to the GPU. Otherwise you will see an error that looks like this:
+>
+> ~~~
+> RuntimeError: Expected object of device type cuda but got device type cpu
+> ~~~
+> {: .language-python}
+{: .callout}
 
 ### Using the DataLoader Class with the GPU
 
