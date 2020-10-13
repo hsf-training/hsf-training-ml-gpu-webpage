@@ -16,3 +16,4 @@ keypoints:
 # Mini-batching
 
 > *Friends don't let friends use mini-batches larger than 32* - Yann LeCunn
+{: .callout}
