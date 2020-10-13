@@ -37,5 +37,9 @@ An important ML Python library that you may notice is missing from this list is 
 
 # Why should I use a GPU for my ML code?
 
+The matrix operations that GPus are optimised for are exactly what happens in the training step for building a deep learning model. In a neural network, the process of multiplying input data by weights can be formulated as a matrix operation and as your network grows to include 10s of millions of parameters it also becomes a pretty big one. Having many cores available to perform this matrix multiplication in parallel means that the GPU can quickly outperform a CPU in this case. 
+
+
+
 {% include links.md %}
 
