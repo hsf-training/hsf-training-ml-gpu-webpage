@@ -34,7 +34,7 @@ A further consideration when you are using a large model on a GPU is whether the
 > If you run into memory problems on a GPU, you will see an error that looks like this:
 >
 > ~~~
->
+> RuntimeError: CUDA out of memory.
 > ~~~
 > 
 {: .callout}
