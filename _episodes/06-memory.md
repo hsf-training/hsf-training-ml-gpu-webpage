@@ -24,7 +24,7 @@ There are two reasons that we sub-divide the data into mini-batches during train
 > ### &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *Friends don't let friends use mini-batches larger than 32* - Yann LeCunn
 {: .callout}
 
-Most deep learning applications use stochastic gradient algorithms to update the values of the weights and biases in the network during training. Rather than computing these updates on a sample by sample basis, they instead use parameter updates based on gradient averages over small subsets of the full training set. These are known as *mini-batches* and the *batch size* specifies how many samples are in each mini-batch. 
+Most deep learning applications use [stochastic gradient algorithms](https://hsf-training.github.io/hsf-training-ml-webpage/02-mltechnical/index.html) to update the values of the weights and biases in the network during training. Rather than computing these updates on a sample by sample basis, they instead use parameter updates based on gradient averages over small subsets of the full training set. These are known as *mini-batches* and the *batch size* specifies how many samples are in each mini-batch. 
 
 Exactly how to set the batch size for a particular machine learning application is a multi-faceted problem. On one hand, increasing the batch size can make more efficient use of the parallel processes on the GPU, but on the other hand large batch sizes have been shown to adversely affect the convergence of the training and cause models to over-fit the training data. Typically the bacth size is treated as a hyper-parameter than can be tuned using the validation data set.
 
