@@ -7,13 +7,12 @@ questions:
 - "Which machine learning libraries support GPUs?"
 - "Why should I use a GPU for my ML code?"
 objectives:
-- "Discuss the general learning task in machine learning."
-- "Provide examples of machine learning in high energy physics."
-- "Give resources to people who want to become proficient in machine learning."
+- "Discuss the differences between CPUs and GPUs."
+- "Provide examples of Python machine learning libraries that support GPUs."
 keypoints:
-- "The 3 main tasks of Machine Learning are regression, classification and generation."
-- "Machine learning has many applications in high energy physics."
-- "If you want to become proficient in machine learning, you need to practice."
+- "GPUs are great for highly-parallel processing."
+- "CPUs are more flexible than GPUs."
+- "GPUs are most useful for neural network applications in machine learning."
 ---
 
 # What is a GPU?
@@ -43,6 +42,7 @@ An important ML Python library that you may notice is missing from this list is 
 
 The matrix operations that GPus are optimised for are exactly what happens in the training step for building a deep learning model. In a neural network, the process of multiplying input data by weights can be formulated as a matrix operation and as your network grows to include 10s of millions of parameters it also becomes a pretty big one. Having many cores available to perform this matrix multiplication in parallel means that the GPU can quickly outperform a CPU in this case. 
 
+However, if you're *not* using a neural network as your machine learning model you may find that a GPU doesn't improve the computation time. It's the large matrix multiplications required for neural networks that really make GPUs useful. Likewise if you are using a neural network but its very small then again a GPU will not be any faster than a CPU - in fact it might even be slower. 
 
 
 {% include links.md %}
