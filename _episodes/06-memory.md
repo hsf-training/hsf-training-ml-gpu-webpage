@@ -17,7 +17,7 @@ keypoints:
 
 There are two reasons that we sub-divide the data into mini-batches during training:
 
-* To produce a smoother loss curve;
+* To produce a better loss curve;
 * To make sure that the data fit into GPU memory.
 
 > ## Wise Words
