@@ -21,7 +21,7 @@ There are two reasons that we sub-divide the data into mini-batches during train
 * To make sure that the data fit into GPU memory.
 
 > ## Wise Words
-> ### &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *Friends don't let friends use mini-batches larger than 32* - Yann LeCunn
+> ### &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *Friends don't let friends use mini-batches larger than 32* - Yann LeCunn
 {: .callout}
 
 Most deep learning applications use stochastic gradient algorithms to update the values of the weights and biases in the network during training. Rather than computing these updates on a sample by sample basis, they instead use parameter updates based on gradient averages over small subsets of the full training set. These are known as *mini-batches* and the *batch size* specifies how many samples are in each mini-batch. 
