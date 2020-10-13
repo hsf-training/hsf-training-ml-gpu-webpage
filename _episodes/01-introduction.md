@@ -37,13 +37,15 @@ While both AMD and NVIDIA are major vendors of GPUs, NVIDIA is currently the mos
 
 # Different types of GPU
 
+This is a comparison of some of the most widely used NVIDIA GPUs in terms of their core numbers and memory. There are of course other differences between these GPUs (including price!) which may lead to a specific type being chosen for a particular computing centre or application, but they are all suitable for AI.
+
 | GPU        | No. Cores     | Memory  |
 | ---------- |:-------------:| -------:|
-| [K40](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/TeslaK80-datasheet.pdf)      | 2880 | 12GB |
-| [K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/TeslaK80-datasheet.pdf)      | 4992      |   24GB |
-| [V100](https://images.nvidia.com/content/technologies/volta/pdf/volta-v100-datasheet-update-us-1165301-r5.pdf)     | 5120     |   16 or 32GB |
-| [P100](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-p100/pdf/nvidia-tesla-p100-datasheet.pdf)     | 3584      |    16GB |
-| [T4](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf)       | 2560      |    16GB |
+| [K40](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/TeslaK80-datasheet.pdf)      | 2880  | 12GB    |
+| [K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/TeslaK80-datasheet.pdf)      | 4992  |   24GB  |
+| [V100](https://images.nvidia.com/content/technologies/volta/pdf/volta-v100-datasheet-update-us-1165301-r5.pdf)             | 5120  |   16 or 32GB |
+| [P100](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-p100/pdf/nvidia-tesla-p100-datasheet.pdf)      | 3584  |    16GB |
+| [T4](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf)          | 2560  |    16GB |
 
 # Which Python machine learning libraries support GPUs?
 
