@@ -59,7 +59,7 @@ A further consideration when you are using a large model on a GPU is whether the
 You may have noticed in the output from the challenges above that the error message associated with running out of memory typically includes some information like this:
 
 ~~~
-Tried to allocate 8.74 GiB (GPU 0; 15.90 GiB total capacity; 8.84 GiB already allocated; 6.32 GiB free; 8.86 GiB reserved in total by PyTorch)
+RuntimeError: CUDA out of memory. Tried to allocate 8.74 GiB (GPU 0; 15.90 GiB total capacity; 8.84 GiB already allocated; 6.32 GiB free; 8.86 GiB reserved in total by PyTorch)
 ~~~
 {: .language-python}
 
