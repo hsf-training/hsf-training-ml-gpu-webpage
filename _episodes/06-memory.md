@@ -61,3 +61,17 @@ A further consideration when you are using a large model on a GPU is whether the
 > > The solution to this challenge will depend on exactly what kind of GPU you're running on. However, typically it will happen for a network with 5 hidden layers, each containing 5000 neurons.
 > {: .solution}
 {: .challenge}
+
+
+# Monitoring memory usage
+
+You may have noticed in the output from the challenges above that the error message associated with running out of memory typically includes some information like this:
+
+~~~
+Tried to allocate 8.74 GiB (GPU 0; 15.90 GiB total capacity; 8.84 GiB already allocated; 6.32 GiB free; 8.86 GiB reserved in total by PyTorch)
+~~~
+{: .language-python}
+
+The allocation of memory on a GPU is not super simple. As well as the memory that is used to store tensor data, software applications will also typically *reserve* additional memory in a cache in order to speed up processing that requires access to memory. The way that the amount of reserved memory is decided depends on the software library itself.  
+
+
