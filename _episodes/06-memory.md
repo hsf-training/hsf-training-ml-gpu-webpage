@@ -83,10 +83,12 @@ c = torch.cuda.memory_reserved(0)
 
 ### Memory usage in neural networks
 
-A fully-connected layer `nn.Linear(m, n)` uses O(nm) memory: that is to say, the memory requirements of the weights scales quadratically with the number of features.
+The dataset we're using to train the model in this example is pretty small in terms of volume, so small changes to a reasonable batch size (16, 32, 64 etc.) will not have a huge effect on the GPU memory usage in this case. However, we are using a fully-connected neural network which contains a large number of learnable parameters. 
+
+The learnable parameters in a fully-connected layer `nn.Linear(m, n)` use O(nm) memory: that is to say, the memory requirements scale *quadratically* with the number of features.
 
 > ## Challenge
-> The dataset we're using to train the model in this example is pretty small in terms of volume, so small changes to a reasonable batch size (16, 32, 64 etc.) will not have a huge effect on the GPU memory usage in this case. However, we are using a fully-connected neural network which contains a large number of learnable parameters. By adding additional layers, work out how deep we can make this network before running out of GPU memory when using a batch size of 32.
+> By adding additional layers, work out how deep you can make your network before running out of GPU memory when using a batch size of 32.
 > 
 > > ## Solution
 > > 
