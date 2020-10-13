@@ -18,7 +18,9 @@ keypoints:
 
 # What is a GPU?
 
-![GPU vs CPU](../plots/gpucpu_comp.png){:width="80%"}
+[table](https://blogs.nvidia.com/blog/2009/12/16/whats-the-difference-between-a-cpu-and-a-gpu/)
+
+![GPU vs CPU](../plots/cpugpu_comp.png){:width="80%"}
 
 ### AMD vs. NVIDIA
 
