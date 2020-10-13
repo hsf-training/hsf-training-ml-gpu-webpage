@@ -76,6 +76,7 @@ if use_cuda:
 > platform.processor()
 > ~~~
 > {: .language-python}
+{: .callout}
 
 # Selecting a GPU to use
 
