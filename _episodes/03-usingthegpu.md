@@ -99,7 +99,7 @@ train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, sh
 
 Remember that once you have sent a particular set of data to the GPU, if you want to perform a calculation on those data using the CPU then you will need to move it back again. One of the most common errors you will see when using a GPU is a mismatch between the locations of different data being used in a function. This is what we saw above when the validation data were not moved onto the GPU.
 
-You can find out which device your data are on at different points in the code by using the `device` property:
+In PyTorch you can find out which device your tensor data are on at different points in the code by using the `device` property:
 
 ~~~
 print(x_train.device)
