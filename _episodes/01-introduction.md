@@ -18,6 +18,8 @@ keypoints:
 
 # What is a GPU?
 
+![GPU vs CPU](../plots/gpucpu_comp.png){:width="80%"}
+
 ### AMD vs. NVIDIA
 
 While both AMD and NVIDIA are major vendors of GPUs, NVIDIA is currently the most common GPU vendor for machine learning and cloud computing. Most GPU-enabled Python libraries will only work with NVIDIA GPUs.
