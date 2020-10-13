@@ -20,7 +20,7 @@ Just as in the [Introduction to Machine Learning lesson](https://hsf-training.gi
 
 ~~~
 from sklearn.metrics import classification_report
-# Random Forest Report
+
 print (classification_report(y_test, y_pred,
                             target_names=["background", "signal"]))
 ~~~
