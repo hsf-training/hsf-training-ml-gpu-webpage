@@ -19,7 +19,7 @@ keypoints:
 
 A processor *core* is an individual processor within a Central Processing Unit (CPU). This core is the computer chip inside the CPU that performs calculations. Today nearly all computers have *multi-core processors*, which means that their CPU contains more than one core. This increases the performance of the CPU because it can do more calculations. Confusingly, the terms *processor* and *core* often get used interchangeably.
 
-Graphics Processing Units (GPUs) are specialised processors that contain many cores. They were originally designed to render graphics but these days they're used for other things as well. Although CPUs can have multiple cores they don't have nearly as many as a GPU. Typicaly GPUs will have 1000s of small cores on a single processor. The differences between CPUs and GPUs are summarised in this [table](https://blogs.nvidia.com/blog/2009/12/16/whats-the-difference-between-a-cpu-and-a-gpu/).
+Graphics Processing Units (GPUs) are specialised processors that contain many cores. They were originally designed to render graphics but these days they're used for other things as well. Although CPUs can have multiple cores they don't have nearly as many as a GPU. Typically GPUs will have 1000s of small cores on a single processor. The differences between CPUs and GPUs are summarised in this [table](https://blogs.nvidia.com/blog/2009/12/16/whats-the-difference-between-a-cpu-and-a-gpu/).
 
 ![GPU vs CPU](../plots/cpugpu_comp.png){:width="80%"}
 
