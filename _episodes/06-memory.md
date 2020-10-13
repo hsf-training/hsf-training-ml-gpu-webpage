@@ -49,15 +49,15 @@ A further consideration when you are using a large model on a GPU is whether the
 > > {: .language-python}
 > > You can then set this number as your batch size.
 > > 
-> > The solution to this challenge will depend on exactly what kind of GPU you're running on. 
+> > The solution to this challenge will depend on exactly what kind of GPU you're running on. But in most cases you will run out of memory and see the error described above.
 > {: .solution}
 {: .challenge}
 
 > ## Challenge
-> The dataset we're using to train the model in this example is pretty small in terms of volume, so changing the batch size will not have a huge effect on the GPU memory usage in this case. However, we are using a fully-connected neural network which contains a large number of learnable parameters. By adding additional layers, work out how deep we can make this network before running out of GPU memory.
+> The dataset we're using to train the model in this example is pretty small in terms of volume, so small changes to a reasonable batch size (16, 32, 64 etc.) will not have a huge effect on the GPU memory usage in this case. However, we are using a fully-connected neural network which contains a large number of learnable parameters. By adding additional layers, work out how deep we can make this network before running out of GPU memory when using a batch size of 32.
 > 
 > > ## Solution
 > > 
-> > The solution to this challenge will depend on exactly what kind of GPU you're running on. However, typically it will happen for a network with 5 hidden layers, each containing 1000 neurons.
+> > The solution to this challenge will depend on exactly what kind of GPU you're running on. However, typically it will happen for a network with 5 hidden layers, each containing 5000 neurons.
 > {: .solution}
 {: .challenge}
