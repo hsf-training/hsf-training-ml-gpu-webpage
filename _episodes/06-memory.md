@@ -9,8 +9,8 @@ objectives:
 - "Prepare the dataset for machine learning."
 - "Get excited for machine learning!"
 keypoints:
-- "One must properly format data before any machine learning takes place."
-- "Data can be formatted using scikit-learn functionality; using it effectively may take time to master."
+- "GPU memory is not the only consideration when setting the batch size."
+- "."
 ---
 
 # Mini-batching
@@ -36,6 +36,22 @@ A further consideration when you are using a large model on a GPU is whether the
 > ~~~
 > {: .language-python}
 {: .callout}
+
+> ## Challenge
+> Take the final network from you run time tests (`hidden_size=5000`) and try using the whole training data set as a single batch. What happens?
+> 
+> > ## Solution
+> > 
+> > The first step to this challenge is working out how many data samples are in the full training set:
+> > ~~~
+> > print(len(train_loader.dataset))
+> > ~~~
+> > {: .language-python}
+> > You can then set this number as your batch size.
+> > 
+> > The solution to this challenge will depend on exactly what kind of GPU you're running on. 
+> {: .solution}
+{: .challenge}
 
 > ## Challenge
 > The dataset we're using to train the model in this example is pretty small in terms of volume, so changing the batch size will not have a huge effect on the GPU memory usage in this case. However, we are using a fully-connected neural network which contains a large number of learnable parameters. By adding additional layers, work out how deep we can make this network before running out of GPU memory.
