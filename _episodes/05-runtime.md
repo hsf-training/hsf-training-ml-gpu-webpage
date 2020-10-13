@@ -85,7 +85,7 @@ This is because processes on a GPU run *asynchronously*. This means that when we
 
 
 > ## Challenge
-> Calculate the run time for the training loop in your code.
+> Calculate the run time for the GPU-enabled training loop in your code.
 > 
 > > ## Solution
 > > 
