@@ -7,9 +7,9 @@ questions:
 - "How can I determine the specifications of the GPU?"
 - "How do I select to use the GPU?"
 objectives:
-- "Discuss the role of data, models, and loss functions in machine learning."
-- "Discuss the role of gradient descent when optimizing a model."
-- "Alert you to the dangers of overfitting!"
+- "Use Python to list available GPUs."
+- "Identify the characteristics of the available GPU."
+- "Select a GPU in PyTorch."
 keypoints:
 - "A GPU needs to be available in order for you to use it."
 - "Not all GPUs are the same."
