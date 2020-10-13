@@ -86,5 +86,18 @@ device = torch.device("cuda:2" if use_cuda else "cpu")
 ~~~
 {: .language-python}
 
+> ## Challenge
+> Update your code to select GPU 0.
+> 
+> > ## Solution
+> > 
+> > ~~~
+> > device = torch.device("cuda:0" if use_cuda else "cpu")
+> > print("Device: ",device)
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
+
 
 {% include links.md %}
