@@ -36,7 +36,7 @@ A further consideration when you are using a large model on a GPU is whether the
 > ~~~
 > RuntimeError: CUDA out of memory.
 > ~~~
-> 
+> {: .language-python}
 {: .callout}
 
 
