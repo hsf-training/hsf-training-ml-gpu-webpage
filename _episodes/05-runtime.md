@@ -16,7 +16,7 @@ keypoints:
 
 # Model performance
 
-Just as in the [Introduction to Machine Learning lesson]() you can evaluate the performance of your network using a variety of metrics. For example using
+Just as in the [Introduction to Machine Learning lesson](https://hsf-training.github.io/hsf-training-ml-webpage/11-Model_Comparison/index.html) you can evaluate the performance of your network using a variety of metrics. For example using
 
 ~~~
 from sklearn.metrics import classification_report
