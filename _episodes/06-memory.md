@@ -6,11 +6,11 @@ questions:
 - "Why do I need to send my data to the GPU in batches?"
 - "How can I monitor the GPU memory usage?"
 objectives:
-- "Prepare the dataset for machine learning."
-- "Get excited for machine learning!"
+- "Understand the issues around GPU memory limits."
+- "Provide information on where to learn more about GPU memory management."
 keypoints:
 - "GPU memory is not the only consideration when setting the batch size."
-- "."
+- "Memory limits will depend on both allocated and reserved memory."
 ---
 
 # Mini-batching
