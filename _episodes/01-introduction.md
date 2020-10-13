@@ -22,6 +22,10 @@ Graphics Processing Units (GPUs) are specialised processors that contain many co
 
 ![GPU vs CPU](../plots/cpugpu_comp.png){:width="80%"}
 
+It's important to note that just because GPUs have more cores than CPUs they are not universally better. There is a trade-off between increasing the number of cores and the flexibility of what they can be used for. GPU cores are smaller and more specialised than the cores on a CPU, this means that they are better for specific applications, but cannot be optimised or used efficiently in as many ways as CPUs. 
+
+In particular GPUs are very efficient for performing highly parallel matrix multiplication, because this is an important application for graphics rendering. 
+
 ### AMD vs. NVIDIA
 
 While both AMD and NVIDIA are major vendors of GPUs, NVIDIA is currently the most common GPU vendor for machine learning and cloud computing. Most GPU-enabled Python libraries will only work with NVIDIA GPUs.
