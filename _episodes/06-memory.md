@@ -53,17 +53,6 @@ A further consideration when you are using a large model on a GPU is whether the
 > {: .solution}
 {: .challenge}
 
-A fully-connected layer `nn.Linear(m, n)` uses O(nm) memory: that is to say, the memory requirements of the weights scales quadratically with the number of features.
-
-> ## Challenge
-> The dataset we're using to train the model in this example is pretty small in terms of volume, so small changes to a reasonable batch size (16, 32, 64 etc.) will not have a huge effect on the GPU memory usage in this case. However, we are using a fully-connected neural network which contains a large number of learnable parameters. By adding additional layers, work out how deep we can make this network before running out of GPU memory when using a batch size of 32.
-> 
-> > ## Solution
-> > 
-> > The solution to this challenge will depend on exactly what kind of GPU you're running on. However, typically it will happen for a network with 5 hidden layers, each containing 5000 neurons.
-> {: .solution}
-{: .challenge}
-
 
 # Monitoring memory usage
 
@@ -75,6 +64,33 @@ Tried to allocate 8.74 GiB (GPU 0; 15.90 GiB total capacity; 8.84 GiB already al
 {: .language-python}
 
 The allocation of memory on a GPU is not super simple. As well as the memory that is used to store tensor data, software applications will also typically *reserve* additional memory in a cache in order to speed up processing that requires access to memory. The way that the amount of reserved memory is decided depends on the software library itself.  
+
+In PyTorch it is possible to monitor the allocated memory for a particular GPU using:
+
+~~~
+a = torch.cuda.memory_allocated(0)
+~~~
+{: .language-python}
+
+and to monitor the cached memory using:
+
+~~~
+c = torch.cuda.memory_reserved(0)
+~~~
+{: .language-python}
+
+
+A fully-connected layer `nn.Linear(m, n)` uses O(nm) memory: that is to say, the memory requirements of the weights scales quadratically with the number of features.
+
+> ## Challenge
+> The dataset we're using to train the model in this example is pretty small in terms of volume, so small changes to a reasonable batch size (16, 32, 64 etc.) will not have a huge effect on the GPU memory usage in this case. However, we are using a fully-connected neural network which contains a large number of learnable parameters. By adding additional layers, work out how deep we can make this network before running out of GPU memory when using a batch size of 32.
+> 
+> > ## Solution
+> > 
+> > The solution to this challenge will depend on exactly what kind of GPU you're running on. However, typically it will happen for a network with 5 hidden layers, each containing 5000 neurons.
+> {: .solution}
+{: .challenge}
+
 
 # Where can I get help if I have memory problems on the GPU?
 
