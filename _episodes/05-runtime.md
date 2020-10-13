@@ -16,6 +16,25 @@ keypoints:
 
 # Model performance
 
+Just as in the [Introduction to Machine Learning lesson]() you can evaluate the performance of your network using a variety of metrics. For example using
+
+~~~
+from sklearn.metrics import classification_report
+# Random Forest Report
+print (classification_report(y_test, y_pred,
+                            target_names=["background", "signal"]))
+~~~
+{: .language-python}
+
+However, remember that if you have made your predictions using the model on the GPU then you will need to move the prediction from your network `y_pred` off the GPU and onto the CPU before using the `classification_report()` function.
+
+> ## Challenge
+> Check the performance of the model you trained on the GPU and compare it to the same model trained on the CPU.
+> 
+> > ## Solution
+> > You shouldn't see any difference in the performance of the two models. 
+> {: .solution}
+{: .challenge}
 
 # Computational performance
 
