@@ -93,7 +93,7 @@ train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, sh
 ~~~
 {: .language-python}
 
-*Pinned memory* is used as a staging area for data transfers between the CPU and the GPU. By setting `pin_memory=True` when we initialise the data loader we are directly allocating space in pinned memory. This avoids the time cost of transfering data from the CPU to the pinned staging area every time we move the data onto the GPU later in the code. You can read more about pinned memory on the [nvidia blog](https://developer.nvidia.com/blog/how-optimize-data-transfers-cuda-cc/). 
+*Pinned memory* is used as a staging area for data transfers between the CPU and the GPU. By setting `pin_memory=True` when we initialise the data loader we are directly allocating space in pinned memory. This avoids the time cost of transfering data from the host to the pinned (non-pageable) staging area every time we move the data onto the GPU later in the code. You can read more about pinned memory on the [nvidia blog](https://developer.nvidia.com/blog/how-optimize-data-transfers-cuda-cc/). 
 
 ### GPU/CPU data mis-matches
 
