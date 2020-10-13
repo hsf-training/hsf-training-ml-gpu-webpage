@@ -35,7 +35,7 @@ The Compute Unified Device Architecture (CUDA) is a parallel computing platform 
 
 While both AMD and NVIDIA are major vendors of GPUs, NVIDIA is currently the most common GPU vendor for machine learning and cloud computing. Most GPU-enabled Python libraries will only work with NVIDIA GPUs.
 
-# Different types of GPU
+### Different types of GPU
 
 This is a comparison of some of the most widely used NVIDIA GPUs in terms of their core numbers and memory. There are of course other differences between these GPUs (including price!) which may lead to a specific type being chosen for a particular computing centre or application, but they are all suitable for AI.
 
