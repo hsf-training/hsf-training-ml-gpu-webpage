@@ -38,7 +38,7 @@ However, remember that if you have made your predictions using the model on the 
 
 # Computational performance
 
-Although there are different ways to evaluate the computational performance of your code, for the purpose of this tutorial the main metric that you're probably interested in is **run time**. 
+Although there are different ways to evaluate the computational performance of your code, for the purpose of this tutorial the main metric that you're probably interested in is **run time**. Training machine learning models can take a really long time and speeding this process up makes life much easier.
 
 ### Calculating run time
 
