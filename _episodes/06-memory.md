@@ -37,4 +37,11 @@ A further consideration when you are using a large model on a GPU is whether the
 > {: .language-python}
 {: .callout}
 
-
+> ## Challenge
+> The dataset we're using to train the model in this example is pretty small in terms of volume, so changing the batch size will not have a huge effect on the GPU memory usage in this case. However, we are using a fully-connected neural network which contains a large number of learnable parameters. By adding additional layers, work out how deep we can make this network before running out of GPU memory.
+> 
+> > ## Solution
+> > 
+> > The solution to this challenge will depend on exactly what kind of GPU you're running on. However, typically it will happen for a network with 5 hidden layers, each containing 1000 neurons.
+> {: .solution}
+{: .challenge}
