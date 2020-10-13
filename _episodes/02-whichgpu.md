@@ -68,6 +68,14 @@ if use_cuda:
 > {: .solution}
 {: .challenge}
 
+> ## CPU Equivalent
+> If you want to do the same for your CPU  from Python you can find out what it is using:
+> 
+> ~~~
+> import platform
+> platform.processor()
+> ~~~
+> {: .language-python}
 
 # Selecting a GPU to use
 
