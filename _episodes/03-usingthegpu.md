@@ -81,6 +81,8 @@ Due to the memory limitations of GPUs compared with CPUs, the data should be mov
 > RuntimeError: Expected object of device type cuda but got device type cpu
 > ~~~
 > {: .language-python}
+>
+> This error is coming from the loss calculation where we're passing both the model output (device='cuda') and the validation data (device='cpu') into the same function.
 {: .callout}
 
 ### Using the DataLoader Class with the GPU
