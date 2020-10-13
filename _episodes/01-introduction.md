@@ -18,7 +18,7 @@ keypoints:
 
 # What is a GPU?
 
-[table](https://blogs.nvidia.com/blog/2009/12/16/whats-the-difference-between-a-cpu-and-a-gpu/)
+Graphics Processing Units (GPUs) are specialised processors that contain many cores. They were originally designed to render graphics but these days they're used for other things as well. CPUs can also have multiple cores, but they don't have as many as a GPU. Typicaly GPUs will have 1000s of small cores on a single processor. The differences between CPUs and GPUs are summarised in this [table](https://blogs.nvidia.com/blog/2009/12/16/whats-the-difference-between-a-cpu-and-a-gpu/).
 
 ![GPU vs CPU](../plots/cpugpu_comp.png){:width="80%"}
 
