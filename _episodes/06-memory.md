@@ -79,6 +79,7 @@ c = torch.cuda.memory_reserved(0)
 ~~~
 {: .language-python}
 
+### Memory usage in neural networks
 
 A fully-connected layer `nn.Linear(m, n)` uses O(nm) memory: that is to say, the memory requirements of the weights scales quadratically with the number of features.
 
