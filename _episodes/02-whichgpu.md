@@ -15,7 +15,7 @@ keypoints:
 - "Not all GPUs are the same."
 ---
  
- In this section we will establish the mathematical foundations of machine learning. We will define three important quantities: **data**, **models**, and **loss functions**. We will then discuss the optimization procedure known as **gradient descent**.
+ In this section we will introduce GPUs and explain how the are different to CPUs. We will discuss the properties of different GPUs and explain how to select a particular GPU for the PyTorch example in this lesson.
  
 # Find out if a GPU is available
  
