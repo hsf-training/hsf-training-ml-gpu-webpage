@@ -121,22 +121,22 @@ This is because processes on a GPU run *asynchronously*. This means that when we
 
 ### Network depth
 
-You'll quickly realise that the GPU-enabled loop doesn't really run that much faster than the normal training on CPU. That's because the neural network we've been using is really really small so the matrix multiplications on the CPU are just as fast as the ones we can do on the GPU. We can see how big our network needs to be to make the GPU useful by increasing the number of artificial neurons in each of our hidden layers. 
+You'll quickly realise that the GPU-enabled loop doesn't really run that much faster than the normal training on CPU. That's because the neural network we've been using so far is *really really small* so the matrix multiplications on the CPU are just as fast as the ones we can do on the GPU. The figure below shows how big our network needs to be to make the GPU useful by increasing the number of artificial neurons in each of our hidden layers. 
 
 ![GPU vs CPU](../plots/runtime_p100.png){:width="80%"}
 
 
 > ## Challenge
-> Increase the number of neurons in the hidden layers of your network to 5000 and re-run your timing tests. How do the results look now?
+> Increase the number of neurons in the hidden layers of your network to 2000 and re-run your timing tests. How do the results look now?
 > 
 > > ## Solution
 > > 
 > > ~~~
-> > hidden_size = 5000
+> > hidden_size = 2000
 > > ~~~
 > > {: .language-python}
 > >
-> > You should see a difference in run time that is roughly XX. The exact value will depend on what type of GPU you are using.
+> > You should see a difference in run time that is roughly 4 - 5 x faster with the GPU. The exact value will depend on what type of GPU you are using.
 > {: .solution}
 {: .challenge}
 
