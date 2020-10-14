@@ -49,6 +49,8 @@ This is a comparison of some of the most widely used NVIDIA GPUs in terms of the
 
 # Which Python machine learning libraries support GPUs?
 
+All of the major deep learning Python libraries support the use of GPUs and allow users to distribute their code over multiple GPUs.
+
 | Package    |GPU      | Multi-GPU  |
 | ---------- |:--------:|:---------:|
 | Tensorflow | &#10003; |  &#10003; | 
