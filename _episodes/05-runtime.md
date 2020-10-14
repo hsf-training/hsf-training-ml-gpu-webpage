@@ -7,7 +7,7 @@ questions:
 - "Will the computational performance of my model improve when I use the GPU?"
 objectives:
 - "Calculate the run time of GPU-enabled model training."
-- "Understand under which circumstances a GPU will improve performance."
+- "Perform a run-time comparison between CPU and GPU training."
 keypoints:
 - "Using a GPU will not improve your ML performance."
 - "Using a GPU will improve your run time only under certain circumstances."
