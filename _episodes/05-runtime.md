@@ -119,7 +119,11 @@ This is because processes on a GPU run *asynchronously*. This means that when we
 > {: .solution}
 {: .challenge}
 
+### Network depth
+
 You'll quickly realise that the GPU-enabled loop doesn't really run that much faster than the normal training on CPU. That's because the neural network we've been using is really really small so the matrix multiplications on the CPU are just as fast as the ones we can do on the GPU. We can see how big our network needs to be to make the GPU useful by increasing the number of artificial neurons in each of our hidden layers. 
+
+
 
 
 > ## Challenge
