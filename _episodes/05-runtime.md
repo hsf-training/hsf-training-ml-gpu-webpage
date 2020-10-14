@@ -124,6 +124,7 @@ You'll quickly realise that the GPU-enabled loop doesn't really run that much fa
 
 ![GPU vs CPU](../plots/runtime_p100.png){:width="80%"}
 
+We can see from the above plot that for our small network with only two hidden layers we need at least 1000 neurons in each hidden layer to make using the GPU more useful than using the CPU. In fact for smaller networks *the CPU is faster than the GPU*. At this point you need to ask yourself: "how many neurons do I need?" The answer to this is of course specific to the application and it needs to be tuned using your validation data set. Then you can decide whether you need to run on GPU or not.
 
 > ## Challenge
 > Increase the number of neurons in the hidden layers of your network to 2000 and re-run your timing tests. How do the results look now?
