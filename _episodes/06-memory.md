@@ -40,7 +40,7 @@ A further consideration when you are using a large model on a GPU is whether the
 {: .callout}
 
 > ## Challenge
-> Take the final network from you run time tests (`hidden_size=5000`) and try using the whole training data set as a single batch. What happens?
+> Take the final network from you run time tests (`hidden_size=2000`) and try using the whole training data set as a single batch. What happens?
 > 
 > > ## Solution
 > > 
