@@ -1,6 +1,6 @@
 ---
 title: "Run time comparisons"
-teaching: 10
+teaching: 5
 exercises: 15
 questions:
 - "Will the ML performance of my model improve when I use the GPU?"
