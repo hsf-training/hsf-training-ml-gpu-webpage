@@ -1,7 +1,7 @@
 ---
 title: "Is a GPU available?"
-teaching: 20
-exercises: 0
+teaching: 5
+exercises: 15
 questions:
 - "How do I find out if a GPU is available?"
 - "How can I determine the specifications of the GPU?"
