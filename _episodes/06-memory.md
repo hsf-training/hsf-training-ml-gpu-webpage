@@ -85,7 +85,7 @@ c = torch.cuda.memory_reserved(0)
 
 The dataset we're using to train the model in this example is pretty small in terms of volume, so small changes to a reasonable batch size (16, 32, 64 etc.) will not have a huge effect on the GPU memory usage in this case. However, we are using a fully-connected neural network which contains a large number of learnable parameters. 
 
-The learnable parameters in a fully-connected layer `nn.Linear(m, n)` use O(nm) memory: that is to say, the memory requirements scale *quadratically* with the number of features.
+The learnable parameters in a fully-connected layer - `nn.Linear(m, n)` in PyTorch - use O(nm) memory: that is to say, the memory requirements scale *quadratically* with the number of features.
 
 > ## Challenge
 > By adding additional layers, work out how deep you can make your network before running out of GPU memory when using a batch size of 32.
