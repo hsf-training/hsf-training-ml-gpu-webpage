@@ -1,5 +1,5 @@
 ---
-title: "Going Parallel"
+title: "OPTIONAL: Going Parallel"
 teaching: 10
 exercises: 20
 questions:
