@@ -17,6 +17,7 @@ keypoints:
  
  <iframe width="560" height="315" src="https://www.youtube.com/embed/hcLcToiVEts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
  
+ 
 In this section we will introduce GPUs and explain how the are different to CPUs. We will discuss the properties of different GPUs and explain how to select a particular GPU for the PyTorch example in this lesson.
  
 # Find out if a GPU is available
