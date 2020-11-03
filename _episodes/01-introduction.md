@@ -15,6 +15,8 @@ keypoints:
 - "GPUs are most useful for neural network applications in machine learning."
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yWnX2HucAsg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 # What is a GPU?
 
 A processor *core* is an individual processor within a Central Processing Unit (CPU). This core is the computer chip inside the CPU that performs calculations. Today nearly all computers have *multi-core processors*, which means that their CPU contains more than one core. This increases the performance of the CPU because it can do more calculations. Confusingly, the terms *processor* and *core* often get used interchangeably.
