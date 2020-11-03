@@ -14,6 +14,9 @@ keypoints:
 - "GPU processes are asynchronous."
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N-TirUNwl00" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 In this lesson we will consider different ways of measuring performance and draw comparisons between training a model on the CPU and training it on the GPU. 
 
 # Model performance
