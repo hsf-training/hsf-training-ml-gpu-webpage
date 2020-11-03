@@ -13,6 +13,10 @@ keypoints:
 - "Data should be moved onto the GPU in batches." 
 ---
 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9bdP7DaHJYI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 Once you have selected which device you want PyTorch to use then you can specify which parts of the computation are done on that device. Everything will run on the CPU as standard, so this is really about deciding which parts of the code you want to send to the GPU. For a neural network, training a model is typically the most computationally expensive part of your code and so that's where GPUs are normally utilised. To run a training loop in this way requires that two things are passed to the GPU: (i) the model itself and (ii) the training data.
 
 
