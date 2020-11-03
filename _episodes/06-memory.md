@@ -13,6 +13,9 @@ keypoints:
 - "Memory limits will depend on both allocated and reserved memory."
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tE5oMcA_tX4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 When it comes to memory usage, there are two main things to consider: the size of your training data and the size of your model. Remember that all the learnable parameters in your model require space in memory and that parameters where historic gradients are being calculated and used also *accumulate* in memory. In this lesson we will look at the memory being used by the training data and the memory being used by the model itself.
 
 # Mini-batching
