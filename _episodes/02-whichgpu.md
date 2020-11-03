@@ -43,7 +43,7 @@ This command will return a boolean (True/False) letting you know if a GPU is ava
 
 # Find out the specifications of the GPU(s)
 
-There are a wide variety of GPUs available these days, so it's oftne useful to check the specifications of the GPU(s) that are available to you. For example, the following lines of code will tell you (i) which version of CUDA the GPU(s) support, (ii) how many GPUs there are available, (iii) for a specific GPU (here `0`) what kind of GPU it is, and (iv) how much memory it has available in total.
+There are a wide variety of GPUs available these days, so it's often useful to check the specifications of the GPU(s) that are available to you. For example, the following lines of code will tell you (i) which version of CUDA the GPU(s) support, (ii) how many GPUs there are available, (iii) for a specific GPU (here `0`) what kind of GPU it is, and (iv) how much memory it has available in total.
 
 ~~~
 if use_cuda:
