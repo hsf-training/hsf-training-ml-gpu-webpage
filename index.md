@@ -24,7 +24,7 @@ For physicists working on analysis in data-intensive fields such as particle phy
 
 The aim of this lesson is to:
 - demonstrate how to move an existing machine learning model onto a GPU
-- discuss some of the common issues that come up when using machine learning applicaitons on GPUs
+- discuss some of the common issues that come up when using machine learning applications on GPUs
 
 > ## The skills we'll focus on:
 >

@@ -5,7 +5,7 @@ exercises: 0
 questions:
 - "What is the common terminology in machine learning?"
 - "How does machine learning actually optimize?"
-- "Is there anyting I should be careful of?"
+- "Is there anything I should be careful of?"
 objectives:
 - "Discuss the role of data, models, and loss functions in machine learning."
 - "Discuss the role of gradient descent when optimizing a model."
