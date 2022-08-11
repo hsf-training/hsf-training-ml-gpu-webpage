@@ -18,7 +18,7 @@ keypoints:
 The dataset we will use in this tutorial is simulated ATLAS data. Each event corresponds to 4 detected leptons: some events correspond to a Higgs Boson decay and others do not (background). Various physical quantities such as lepton charge and transverse momentum are recorded for each event. The analysis in this tutorial loosely follows [the discovery of the Higgs Boson](https://www.sciencedirect.com/science/article/pii/S037026931200857X).
 
 ~~~
-# In this notebook we only process the signal ggH125_ZZ4lep and the main background ZZ, 
+# In this notebook we only process the signal ggH125_ZZ4lep and the main background ZZ,
 # for illustration purposes.
 # You can add other backgrounds after if you wish.
 samples = ['ggH125_ZZ4lep','llll']
@@ -40,7 +40,7 @@ DataFrames # print data
 ~~~
 {: .language-python}
 
-Before diving into machine learning, think about whether there are any things you should do to clean up your data. In the case of this Higgs analysis, Higgs boson decays should produce 4 electrons or 4 muons or 2 electrons and 2 muons. Let's define a function to keep only events which produce 4 electrons or 4 muons or 2 electrons and 2 muons. 
+Before diving into machine learning, think about whether there are any things you should do to clean up your data. In the case of this Higgs analysis, Higgs boson decays should produce 4 electrons or 4 muons or 2 electrons and 2 muons. Let's define a function to keep only events which produce 4 electrons or 4 muons or 2 electrons and 2 muons.
 
 ~~~
 # cut on lepton type
@@ -69,7 +69,7 @@ for s in samples:
 {: .language-python}
 
 > ## Challenge
-> Another cut to clean our data is to keep only events where lep_charge_0+lep_charge_1+lep_charge_2+lep_charge_3==0. 
+> Another cut to clean our data is to keep only events where lep_charge_0+lep_charge_1+lep_charge_2+lep_charge_3==0.
 > Write out this function yourself then apply it.
 >
 > > ## Solution
@@ -115,12 +115,12 @@ lep_pt_1 = { # dictionary containing plotting parameters for the lep_pt_1 histog
     'xlabel':r'$lep\_pt$[1] [GeV]', # x-axis label
 }
 
-SoverB_hist_dict = {'lep_pt_2':lep_pt_2,'lep_pt_1':lep_pt_1} 
+SoverB_hist_dict = {'lep_pt_2':lep_pt_2,'lep_pt_1':lep_pt_1}
 # add a histogram here if you want it plotted
 ~~~
 {: .language-python}
 
-Now let's take a look at those variables. Because the code is a bit long, we pre-defined a function for you, to illustrate the optimum cut value on individual variables, based on <span style="color:blue">signal</span> to <span style="color:red">background</span> ratio. Let's call the function to illustrate the optimum cut value on individual variables, based on <span style="color:blue">signal</span> to <span style="color:red">background</span> ratio. You can check out the function definition [here](https://www.kaggle.com/meirinevans/my-functions/edit) 
+Now let's take a look at those variables. Because the code is a bit long, we pre-defined a function for you, to illustrate the optimum cut value on individual variables, based on <span style="color:blue">signal</span> to <span style="color:red">background</span> ratio. Let's call the function to illustrate the optimum cut value on individual variables, based on <span style="color:blue">signal</span> to <span style="color:red">background</span> ratio. You can check out the function definition [here](https://www.kaggle.com/meirinevans/my-functions/edit)
 
 We're not doing any machine learning just yet! We're looking at the variables we'll later use for machine learning.
 
@@ -131,10 +131,10 @@ plot_SoverB(DataFrames)
 {: .language-python}
 
 Let's talk through the lep_pt_2 plots.
-1. Imagine placing a cut at 7 GeV in the distributions of <span style="color:blue">signal</span> and <span style="color:red">background</span> (1st plot). This means keeping all events above 7 GeV in the <span style="color:blue">signal</span> and <span style="color:red">background</span> histograms. 
-2. We then take the ratio of the number of <span style="color:blue">signal</span> events that pass this cut, to the number of <span style="color:red">background</span> events that pass this cut. This gives us a starting value for S/B (2nd plot). 
-3. We then increase this cut value to 8 GeV, 9 GeV, 10 GeV, 11 GeV, 12 GeV. Cuts at these values are throwing away more <span style="color:red">background</span> than <span style="color:blue">signal</span>, so S/B increases. 
-4. There comes a point around 13 GeV where we start throwing away too much <span style="color:blue">signal</span>, thus S/B starts to decrease. 
+1. Imagine placing a cut at 7 GeV in the distributions of <span style="color:blue">signal</span> and <span style="color:red">background</span> (1st plot). This means keeping all events above 7 GeV in the <span style="color:blue">signal</span> and <span style="color:red">background</span> histograms.
+2. We then take the ratio of the number of <span style="color:blue">signal</span> events that pass this cut, to the number of <span style="color:red">background</span> events that pass this cut. This gives us a starting value for S/B (2nd plot).
+3. We then increase this cut value to 8 GeV, 9 GeV, 10 GeV, 11 GeV, 12 GeV. Cuts at these values are throwing away more <span style="color:red">background</span> than <span style="color:blue">signal</span>, so S/B increases.
+4. There comes a point around 13 GeV where we start throwing away too much <span style="color:blue">signal</span>, thus S/B starts to decrease.
 5. Our goal is to find the maximum in S/B, and place the cut there.
 
 The same logic applies to lep_pt_1.

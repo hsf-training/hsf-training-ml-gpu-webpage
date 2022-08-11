@@ -15,8 +15,8 @@ Once you are signed in, you will be given access to the full resources of a Kagg
 This will bring you to the notebook. Next steps to setup the notebook are the following
 
 1. Make your own copy of the notebook by using the "Copy and Edit" black button on the top right corner. This will make a new copy of the notebook and the input data. The data are in a directory called lepton4 displayed in the bar on the right.
-2. Below the data section there is Setting section where you can associate a GPU with the notebook. 
-   * **You will need a mobile phone** to associate the accelerator because kaggle will send you another verification pin using an SMS. 
+2. Below the data section there is Setting section where you can associate a GPU with the notebook.
+   * **You will need a mobile phone** to associate the accelerator because kaggle will send you another verification pin using an SMS.
    * If you run the notebook without associating the accelerator it will run on a CPU instead of a GPU
 
 

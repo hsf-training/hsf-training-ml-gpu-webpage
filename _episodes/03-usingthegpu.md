@@ -10,7 +10,7 @@ objectives:
 - "Look at the TensorFlow neural network Playground to visualize how a neural network works."
 keypoints:
 - "Neural networks consist of an input layer, hidden layers and an output layer."
-- "TensorFlow Playground is a cool place to visualize neural networks!" 
+- "TensorFlow Playground is a cool place to visualize neural networks!"
 ---
 
 # Neural Network Theory Introduction
@@ -38,4 +38,4 @@ Neural networks require a careful training procedure. Suppose we are performing 
 
 # TensorFlow Playground
 
-See [here](https://playground.tensorflow.org/) 
+See [here](https://playground.tensorflow.org/)
