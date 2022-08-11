@@ -32,7 +32,7 @@ It is then up to a human user to specify the probability **threshold** at which 
 
 
 > ## Classifiers in Law
-> In criminal law, Blackstone's ratio (also known as the Blackstone ratio or Blackstone's formulation) is the idea that it is better that ten guilty persons escape than that one innocent suffer. This corresponds to the minimum threshold requirement of 91% confidence of a crime being committed for the classification of guilty. It is obviously difficult to get such precise probabilities when dealing with crimes. 
+> In criminal law, Blackstone's ratio (also known as the Blackstone ratio or Blackstone's formulation) is the idea that it is better that ten guilty persons escape than that one innocent suffer. This corresponds to the minimum threshold requirement of 91% confidence of a crime being committed for the classification of guilty. It is obviously difficult to get such precise probabilities when dealing with crimes.
 {: .callout}
 
 Since TP, FP, TN, and FN all depend on the threshold of a classifier, each of these metrics can be considered functions of threshold.
@@ -47,7 +47,7 @@ It is the ratio of all things that were **correctly** classified as positive to 
 
 ## Recall (True Positive Rate)
 
-Recall is defined as 
+Recall is defined as
 
 $$\text{recall}=\frac{\text{TP}}{\text{TP}+\text{FN}}$$
 
@@ -65,7 +65,7 @@ print (classification_report(y_test, y_pred_RF,
                             target_names=["background", "signal"]))
 # Neural Network Report
 print (classification_report(y_test, y_pred_NN,
-                            target_names=["background", "signal"]))                      
+                            target_names=["background", "signal"]))
 ~~~
 {: .language-python}
 
@@ -118,16 +118,16 @@ We need to decide on an appropriate threshold.
 
 ## What Should My Threshold Be?
 
-As discussed above, the threshold depends on the problem at hand. In this specific example of classifying particles as signal or background events, the primary goal is optimizing the discovery region for statistical significance. As discussed [here](https://higgsml.lal.in2p3.fr/files/2014/04/documentation_v1.8.pdf), this metric is the approximate median significance (AMS) defined as 
+As discussed above, the threshold depends on the problem at hand. In this specific example of classifying particles as signal or background events, the primary goal is optimizing the discovery region for statistical significance. As discussed [here](https://higgsml.lal.in2p3.fr/files/2014/04/documentation_v1.8.pdf), this metric is the approximate median significance (AMS) defined as
 
 $$\text{AMS} = \sqrt{2\left((s+b+b_r)\ln\left(\frac{s}{b+b_r}\right)-s \right)} $$
 
-where $$s$$ and $$b$$ are the true and false positive rates and $$b_r$$ is some number chosen to reduce the variance of the AMS such that the selection region is not too small. For the purpose of this tutorial we will choose $$b_r=0.001$$. 
+where $$s$$ and $$b$$ are the true and false positive rates and $$b_r$$ is some number chosen to reduce the variance of the AMS such that the selection region is not too small. For the purpose of this tutorial we will choose $$b_r=0.001$$.
 
 ~~~
 def AMS(tpr, fpr, b_reg):
     return np.sqrt(2*(tpr+fpr+b_reg)+np.log(tpr/(fpr+b_reg)) -tpr)
-    
+
 ams_nn = AMS(tpr_nn, fpr_nn, 0.001)
 ams_rf = AMS(tpr_rf, fpr_rf, 0.001)
 ~~~

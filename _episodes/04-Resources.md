@@ -59,7 +59,3 @@ You can check the version of these packages by checking the `__version__` attrib
 np.__version__
 ~~~
 {: .language-python}
-
-
-
-
