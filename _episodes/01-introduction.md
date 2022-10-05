@@ -70,7 +70,7 @@ However, if you're *not* using a neural network as your machine learning model y
 
 # Using PyTorch with a GPU
 
-In the [Introduction to Machine Learning lesson]() a neural network was created using PyTorch to classify particle physics events. In this lesson we will build on that neural network in order to demonstrate how it can be implemented on GPU and discuss some of the more general peculiarities specific to training neural networks on GPU.
+In the [Introduction to Machine Learning lesson](https://hsf-training.github.io/hsf-training-ml-webpage/index.html) a neural network was created using PyTorch to classify particle physics events. In this lesson we will build on that neural network in order to demonstrate how it can be implemented on GPU and discuss some of the more general peculiarities specific to training neural networks on GPU.
 
 
 {% include links.md %}
