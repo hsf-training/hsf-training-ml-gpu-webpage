@@ -13,8 +13,7 @@
 > **Note**
 > Click [here](https://hsf-training.github.io/hsf-training-ml-gpu-webpage/) for the training website!
 
-
-This is a package
+This tutorial explores Machine Learning using GPU-enabled PyTorch for applications in high energy physics.
 
 ## 📅 Past events and videos
 
