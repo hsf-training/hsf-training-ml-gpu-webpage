@@ -59,6 +59,10 @@ nicely explained in the chapter [Contributing to a Project][progit] in Pro Git
 by Scott Chacon.
 Look for the tag [![good_first_issue]][gfi-badge], which marks particularly simple issues to get you started.
 
+## Authors
+* Anna Scaife
+
+
 <!-- END CENTRALLY MAINTAINED SECTION -->
 ## 💖 Authors
 
@@ -73,7 +77,6 @@ the content of the lesson:
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
-* Anna Scaife
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
