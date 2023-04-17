@@ -97,3 +97,6 @@ exclude:
 
 # Turn on built-in syntax highlighting.
 highlighter: rouge
+
+# Use central theme
+remote_theme: hsf-training/hsf-training-theme
