@@ -56,7 +56,15 @@ Please see the current list of [issues][issues] for ideas for contributing to th
 repository. For making your contribution, we use the GitHub flow, which is
 nicely explained in the chapter [Contributing to a Project][progit] in Pro Git
 by Scott Chacon.
-Look for the tag [![good_first_issue]][gfi-badge], which marks particularly simple issues to get you started.
+
+Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg). This indicates that the maintainers will welcome a pull request fixing this issue.
+
+
+## Maintainer(s)
+
+Current maintainers of this lesson are 
+
+* Anna Scaife
 
 ## Authors
 * Anna Scaife

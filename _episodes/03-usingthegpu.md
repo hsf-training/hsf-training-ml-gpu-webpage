@@ -3,39 +3,143 @@ title: "Using the GPU"
 teaching: 5
 exercises: 15
 questions:
-- "What is a neural network?"
-- "How can I visualize a neural network?"
+- "How do I send my data to the GPU?"
+- "How do I train my model on the GPU?"
 objectives:
-- "Examine the structure of a fully connected sequential neural network."
-- "Look at the TensorFlow neural network Playground to visualize how a neural network works."
+- "Learn how to move data between the CPU and the GPU."
+- "Be able to identify common errors when moving data."
 keypoints:
-- "Neural networks consist of an input layer, hidden layers and an output layer."
-- "TensorFlow Playground is a cool place to visualize neural networks!"
+- "Both the model and the data must be moved onto the GPU for training."
+- "Data should be moved onto the GPU in batches." 
 ---
 
-# Neural Network Theory Introduction
-Here we will introduce the mathematics of a neural network. You are likely familiar with the linear transform $$y=Ax+b$$ where $$A$$ is a matrix (not necessarily square) and $$y$$ and $$b$$ have the same dimensions and $$x$$ may have a different dimension. For example, if $$x$$ has dimension $$n$$ and $$y$$ and $$b$$ have dimensions $$m$$ then the matrix $$A$$ has dimension $$m$$ by $$n$$.
 
-Now suppose we have some vector $$x_i$$ listing some features (height, weight, body fat) and $$y_i$$ contains blood pressure and resting heart rate. A simple linear model to predict the label features given the input features is then  $$y=Ax+b$$ or $$f(x)=Ax+b$$. But we can go further. Suppose we also apply a *simple* but *non-linear* function $$g$$ to the output so that $$f(x) = g(Ax+b)$$. This function $$g$$ does not change the dimension of $$Ax+b$$ as it is an *element-wise* operation. This function $$g$$ is known as an **activation function**; a few activation functions $$g$$ are shown below.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9bdP7DaHJYI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-![Quadratic model and data points](../plots/act_functions.png){:width="80%"}
 
-Now we can perform a sequence of operations to construct a highly non-linear function. For example; we can construct the following model:
+Once you have selected which device you want PyTorch to use then you can specify which parts of the computation are done on that device. Everything will run on the CPU as standard, so this is really about deciding which parts of the code you want to send to the GPU. For a neural network, training a model is typically the most computationally expensive part of your code and so that's where GPUs are normally utilised. To run a training loop in this way requires that two things are passed to the GPU: (i) the model itself and (ii) the training data.
 
-$$f(x) = g_2(A_2(g_1(A_1x+b_1))+b_2) $$
 
-We first perform a linear transformation, then apply activation function $$g_1$$, then perform another linear transformation, then apply activation function $$g_2$$. The input $$x$$ and the output $$f(x)$$ are not necessarily the same dimension.
+# Sending the model to the GPU
 
-For example, suppose we have an image (which we flatten into a 1d array). This array might be 40000 elements long. We can perform one iteration of $$g_1(A_1x+b_1)$$ to reduce this to a size of 2000. We can apply this over and over again until eventually only a single value is output. This is the foundation of a  **fully connected neural network**. Note we can also increase the dimensions throughout the process, as seen in the image below. We start with a vector $$x$$ of size 3, perform the transformation $$g_1(A_1x+b_1)$$ so the vector is size 4, then perform one final transformation so the vector is size 2.
+In order to train a model on the GPU it is first necessary to send the model itself to the GPU. This is necessary because the trainable parameters of the model need to be on the GPU so that they can be applied and updated in each forward-backward pass. In PyTorch sending the model to the GPU is very simple:
 
-![Quadratic model and data points](../plots/nn.PNG){:width="80%"}
+~~~
+model = model.to(device=device)
+~~~
+{: .language-python}
 
-Neural networks require a careful training procedure. Suppose we are performing a regression task (for example we are given temperature, wind speed, wind direction and pressure, and asked to predict relative humidity). The final output of the neural network will be a single value. During training, we compare the outputs of the neural network $$f(x_i)$$ to the true values of the data $$y_i$$ using some loss function $$L$$. We need to tune the parameters of the model so that $$L$$ is as small as possible. What are the parameters of the model in this case? The parameters are the elements of the matrices $$A_1, A_2, ...$$ and the vectors $$b_1, b_2, ...$$. We also need to adjust them in an appropriate fashion so we are moving closer to the minimum of $$L$$. For this we need to compute $$\nabla L$$. Using a clever technique known as back-propagation, we can determine exactly how much each parameter (i.e. each entry in matrix $$A_i$$) contributes to $$\nabla L$$. Then we slightly adjust each parameter such that $$\vec{L} \to \vec{L}-\alpha \nabla{L}$$ where, as before, $$\alpha$$ is the learning rate. Through this iterative procedure, we slowly minimize the loss function.
+You can also do this when you initialise your model. For the example from the ML tutorial this would look like:
 
-* The vector $$x$$ is referred to as the **input layer** of the network
-* Intermediate quantities (such as $$g_1(A_1x+b_1)$$) are referred to as **hidden layers**. Each element of the vector $$g_1(A_1x+b_1)$$ is referred to as a **neuron**.
-* The model output $$f(x)$$ is referred to as the **output layer**. Note that *activation functions are generally not used in the output layer*.
+~~~
+model = Classifier_MLP(in_dim=input_size, hidden_dim=hidden_size, out_dim=num_classes).to(device=device)
+~~~
+{: .language-python}
 
-# TensorFlow Playground
+> ## Older PyTorch versions
+> In older PyTorch versions, sending things to the GPU was specified in a less flexible way. Instead of using the `.to(device=device)` syntax, one used `.cuda()` to send things to the GPU and `.cpu()` to send things to the CPU. Although this is deprecated it will still work with more recent versions of PyTorch, and is often seen in older tutorials.
+{: .callout}
 
-See [here](https://playground.tensorflow.org/)
+# Sending the data to the GPU
+
+The second requirement for running the training loop on the GPU is to move the training data. This can be done in exactly the same way as for the model, i.e.
+
+~~~
+x_train, y_train = x_train.to(device), y_train.to(device)
+~~~
+{: .language-python}
+
+Due to the memory limitations of GPUs compared with CPUs, the data should be moved in *mini-batches*, i.e. you shouldn't send your whole training data set to the GPU at the beginning of your code. Instead you should only send the data within a single batch iteratively during the training. 
+
+> ## Challenge
+> Adapt the training loop from the ML tutorial to use the GPU.
+> 
+> > ## Solution
+> > 
+> > ~~~
+> > model = model.to(device)
+> > for batch, (x_train, y_train) in enumerate(train_loader):
+> >         
+> >         x_train, y_train = x_train.to(device), y_train.to(device)
+> >         
+> >         model.zero_grad()
+> >         pred, prob = model(x_train)
+> >         
+> >         acc = (prob.argmax(dim=-1) == y_train).to(torch.float32).mean()
+> >         train_accs.append(acc.mean().item())
+> >         
+> >         loss = F.cross_entropy(pred, y_train)
+> >         train_loss.append(loss.item())
+> >        
+> >         loss.backward()
+> >         optimizer.step()
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
+
+> ## Common Errors
+> Remember that if your model is on the GPU then the data in your validation loop will also need to be sent to the GPU. Otherwise you will see an error that looks like this:
+>
+> ~~~
+> RuntimeError: Expected object of device type cuda but got device type cpu
+> ~~~
+> {: .language-python}
+{: .callout}
+
+### Using the DataLoader Class with the GPU
+
+If you are using the PyTorch `DataLoader()` class to load your data in each training loop then there are some keyword arguments you can set to speed up the data loading on the GPU. These should be passed to the class when you set up the data loader.
+
+~~~
+kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
+train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True, **kwargs)
+~~~
+{: .language-python}
+
+*Pinned memory* is used as a staging area for data transfers between the CPU and the GPU. By setting `pin_memory=True` when we initialise the data loader we are directly allocating space in pinned memory. This avoids the time cost of transfering data from the host to the pinned (non-pageable) staging area every time we move the data onto the GPU later in the code. You can read more about pinned memory on the [nvidia blog](https://developer.nvidia.com/blog/how-optimize-data-transfers-cuda-cc/). 
+
+### GPU/CPU data mis-matches
+
+Remember that once you have sent a particular set of data to the GPU, if you want to perform a calculation on those data using the CPU then you will need to move it back again. One of the most common errors you will see when using a GPU is a mismatch between the locations of different data being used in a function. This is what we saw above when the validation data were not moved onto the GPU.
+
+In PyTorch you can find out which device your tensor data are on at different points in the code by using the `device` property:
+
+~~~
+print(x_train.device)
+~~~
+{: .language-python}
+
+> ## Challenge
+> Check which device the probability output from your model is held on. Do the same with the calculated loss.
+> 
+> > ## Solution
+> > 
+> > ~~~
+> > for batch, (x_train, y_train) in enumerate(train_loader):
+> >         
+> >         x_train, y_train = x_train.to(device), y_train.to(device)
+> >         
+> >         model.zero_grad()
+> >         pred, prob = model(x_train)
+> >         print(prob.device)
+> >         
+> >         acc = (prob.argmax(dim=-1) == y_train).to(torch.float32).mean()
+> >         train_accs.append(acc.mean().item())
+> >         
+> >         loss = F.cross_entropy(pred, y_train)
+> >         train_loss.append(loss.item())
+> >         print(loss.device)
+> >
+> >         loss.backward()
+> >         optimizer.step()
+> > ~~~
+> > {: .language-python}
+> > You should see that both the outputs from the model and the calculated loss are still on the GPU. If you want to use these values on the CPU you will need to use (e.g.)
+> > ~~~
+> > prob = prob.to('cpu')
+> > loss = loss.to('cpu')
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
