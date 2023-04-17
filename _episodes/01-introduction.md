@@ -61,7 +61,7 @@ All of the major deep learning Python libraries support the use of GPUs and allo
 | [Keras](https://keras.io)      | &#10003; |  &#10003; |
 | [Caffe](https://caffe.berkeleyvision.org)      | &#10003; |  &#10003; |
 
-An important ML Python library that you may notice is missing from this list is [Scikit-Learn](https://scikit-learn.org/stable/faq.html#will-you-add-gpu-support). Scikit-learn does not support GPU processing at the moment and there are currently no plans to implement support in the near future. Why is this? Well, GPU suport is primarily used for neural networks and deep learning, neither of which are key elements of the Scikit-learn library.
+An important ML Python library that you may notice is missing from this list is [Scikit-Learn](https://scikit-learn.org/stable/faq.html#will-you-add-gpu-support). Scikit-learn does not support GPU processing at the moment and there are currently no plans to implement support in the near future. Why is this? Well, GPU support is primarily used for neural networks and deep learning, neither of which are key elements of the Scikit-learn library.
 
 # Why should I use a GPU for my ML code?
 
