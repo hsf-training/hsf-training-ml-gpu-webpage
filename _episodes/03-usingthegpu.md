@@ -10,7 +10,7 @@ objectives:
 - "Be able to identify common errors when moving data."
 keypoints:
 - "Both the model and the data must be moved onto the GPU for training."
-- "Data should be moved onto the GPU in batches." 
+- "Data should be moved onto the GPU in batches."
 ---
 
 
@@ -49,28 +49,28 @@ x_train, y_train = x_train.to(device), y_train.to(device)
 ~~~
 {: .language-python}
 
-Due to the memory limitations of GPUs compared with CPUs, the data should be moved in *mini-batches*, i.e. you shouldn't send your whole training data set to the GPU at the beginning of your code. Instead you should only send the data within a single batch iteratively during the training. 
+Due to the memory limitations of GPUs compared with CPUs, the data should be moved in *mini-batches*, i.e. you shouldn't send your whole training data set to the GPU at the beginning of your code. Instead you should only send the data within a single batch iteratively during the training.
 
 > ## Challenge
 > Adapt the training loop from the ML tutorial to use the GPU.
-> 
+>
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > model = model.to(device)
 > > for batch, (x_train, y_train) in enumerate(train_loader):
-> >         
+> >
 > >         x_train, y_train = x_train.to(device), y_train.to(device)
-> >         
+> >
 > >         model.zero_grad()
 > >         pred, prob = model(x_train)
-> >         
+> >
 > >         acc = (prob.argmax(dim=-1) == y_train).to(torch.float32).mean()
 > >         train_accs.append(acc.mean().item())
-> >         
+> >
 > >         loss = F.cross_entropy(pred, y_train)
 > >         train_loss.append(loss.item())
-> >        
+> >
 > >         loss.backward()
 > >         optimizer.step()
 > > ~~~
@@ -97,7 +97,7 @@ train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, sh
 ~~~
 {: .language-python}
 
-*Pinned memory* is used as a staging area for data transfers between the CPU and the GPU. By setting `pin_memory=True` when we initialise the data loader we are directly allocating space in pinned memory. This avoids the time cost of transfering data from the host to the pinned (non-pageable) staging area every time we move the data onto the GPU later in the code. You can read more about pinned memory on the [nvidia blog](https://developer.nvidia.com/blog/how-optimize-data-transfers-cuda-cc/). 
+*Pinned memory* is used as a staging area for data transfers between the CPU and the GPU. By setting `pin_memory=True` when we initialise the data loader we are directly allocating space in pinned memory. This avoids the time cost of transferring data from the host to the pinned (non-pageable) staging area every time we move the data onto the GPU later in the code. You can read more about pinned memory on the [nvidia blog](https://developer.nvidia.com/blog/how-optimize-data-transfers-cuda-cc/).
 
 ### GPU/CPU data mis-matches
 
@@ -112,21 +112,21 @@ print(x_train.device)
 
 > ## Challenge
 > Check which device the probability output from your model is held on. Do the same with the calculated loss.
-> 
+>
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > for batch, (x_train, y_train) in enumerate(train_loader):
-> >         
+> >
 > >         x_train, y_train = x_train.to(device), y_train.to(device)
-> >         
+> >
 > >         model.zero_grad()
 > >         pred, prob = model(x_train)
 > >         print(prob.device)
-> >         
+> >
 > >         acc = (prob.argmax(dim=-1) == y_train).to(torch.float32).mean()
 > >         train_accs.append(acc.mean().item())
-> >         
+> >
 > >         loss = F.cross_entropy(pred, y_train)
 > >         train_loss.append(loss.item())
 > >         print(loss.device)
