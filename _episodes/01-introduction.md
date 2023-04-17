@@ -26,13 +26,13 @@ Graphics Processing Units (GPUs) are specialised processors that contain many co
 
 ![GPU vs CPU](../plots/cpugpu_comp.png){:width="80%"}
 
-It's important to note that just because GPUs have more cores than CPUs they are not universally better. There is a trade-off between increasing the number of cores and the flexibility of what they can be used for. GPU cores are smaller and more specialised than the cores on a CPU, this means that they are better for specific applications, but cannot be optimised or used efficiently in as many ways as CPUs. 
+It's important to note that just because GPUs have more cores than CPUs they are not universally better. There is a trade-off between increasing the number of cores and the flexibility of what they can be used for. GPU cores are smaller and more specialised than the cores on a CPU, this means that they are better for specific applications, but cannot be optimised or used efficiently in as many ways as CPUs.
 
-In particular GPUs are very efficient for performing highly parallel matrix multiplication, because this is an important application for graphics rendering. 
+In particular GPUs are very efficient for performing highly parallel matrix multiplication, because this is an important application for graphics rendering.
 
 ### CUDA vs. OpenCL
 
-The Compute Unified Device Architecture (CUDA) is a parallel computing platform developed by NVIDIA that enables software to jointly use both the CPU and GPU. OpenCL is an alternative and more general parallel computing platform developed by Apple that allows software to access not only CPU and GPU simultaneously, but also FPGAs and other DSPs. Both CUDA and OpenCL are compatible with Python and allow the user to implement highly parallel processes on a GPU without needing to explicitly specify the parallelisation, i.e. they do the optimisation for you. 
+The Compute Unified Device Architecture (CUDA) is a parallel computing platform developed by NVIDIA that enables software to jointly use both the CPU and GPU. OpenCL is an alternative and more general parallel computing platform developed by Apple that allows software to access not only CPU and GPU simultaneously, but also FPGAs and other DSPs. Both CUDA and OpenCL are compatible with Python and allow the user to implement highly parallel processes on a GPU without needing to explicitly specify the parallelisation, i.e. they do the optimisation for you.
 
 ### AMD vs. NVIDIA
 
@@ -56,18 +56,18 @@ All of the major deep learning Python libraries support the use of GPUs and allo
 
 | Package    |GPU      | Multi-GPU  |
 | ---------- |:--------:|:---------:|
-| [Tensorflow](https://www.tensorflow.org/learn) | &#10003; |  &#10003; | 
-| [PyTorch](https://pytorch.org)    | &#10003; |  &#10003; | 
-| [Keras](https://keras.io)      | &#10003; |  &#10003; | 
-| [Caffe](https://caffe.berkeleyvision.org)      | &#10003; |  &#10003; | 
+| [Tensorflow](https://www.tensorflow.org/learn) | &#10003; |  &#10003; |
+| [PyTorch](https://pytorch.org)    | &#10003; |  &#10003; |
+| [Keras](https://keras.io)      | &#10003; |  &#10003; |
+| [Caffe](https://caffe.berkeleyvision.org)      | &#10003; |  &#10003; |
 
 An important ML Python library that you may notice is missing from this list is [Scikit-Learn](https://scikit-learn.org/stable/faq.html#will-you-add-gpu-support). Scikit-learn does not support GPU processing at the moment and there are currently no plans to implement support in the near future. Why is this? Well, GPU suport is primarily used for neural networks and deep learning, neither of which are key elements of the Scikit-learn library.
 
 # Why should I use a GPU for my ML code?
 
-The matrix operations that GPus are optimised for are exactly what happens in the training step for building a deep learning model. In a neural network, the process of multiplying input data by weights can be formulated as a matrix operation and as your network grows to include 10s of millions of parameters it also becomes a pretty big one. Having many cores available to perform this matrix multiplication in parallel means that the GPU can quickly outperform a CPU in this case. 
+The matrix operations that GPus are optimised for are exactly what happens in the training step for building a deep learning model. In a neural network, the process of multiplying input data by weights can be formulated as a matrix operation and as your network grows to include 10s of millions of parameters it also becomes a pretty big one. Having many cores available to perform this matrix multiplication in parallel means that the GPU can quickly outperform a CPU in this case.
 
-However, if you're *not* using a neural network as your machine learning model you may find that a GPU doesn't improve the computation time. It's the large matrix multiplications required for neural networks that really make GPUs useful. Likewise if you are using a neural network but its very small then again a GPU will not be any faster than a CPU - in fact it might even be slower. 
+However, if you're *not* using a neural network as your machine learning model you may find that a GPU doesn't improve the computation time. It's the large matrix multiplications required for neural networks that really make GPUs useful. Likewise if you are using a neural network but its very small then again a GPU will not be any faster than a CPU - in fact it might even be slower.
 
 # Using PyTorch with a GPU
 

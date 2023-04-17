@@ -14,14 +14,14 @@ keypoints:
 - "A GPU needs to be available in order for you to use it."
 - "Not all GPUs are the same."
 ---
- 
+
  <iframe width="560" height="315" src="https://www.youtube.com/embed/hcLcToiVEts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- 
- 
+
+
 In this section we will introduce GPUs and explain how the are different to CPUs. We will discuss the properties of different GPUs and explain how to select a particular GPU for the PyTorch example in this lesson.
- 
+
 # Find out if a GPU is available
- 
+
 The first thing you need to know when you're thinking of using a GPU is whether there is actually one available. There are many ways of checking this in Python depending on which libraries you are intending to use with your GPU. The [GPUtil library](https://pypi.org/project/GPUtil/) available for pip installation provides simple methods to check. For example:
 
 ~~~
@@ -56,9 +56,9 @@ if use_cuda:
 
 > ## Challenge
 > Find out if a GPU is available for your PyTorch code and, if so, what its specifications are.
-> 
+>
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > use_cuda = torch.cuda.is_available()
 > > if use_cuda:
@@ -73,7 +73,7 @@ if use_cuda:
 
 > ## CPU Equivalent
 > If you want to do the same for your CPU  from Python you can find out what it is using:
-> 
+>
 > ~~~
 > import platform
 > platform.processor()
@@ -100,9 +100,9 @@ device = torch.device("cuda:2" if use_cuda else "cpu")
 
 > ## Challenge
 > Update your code to select GPU 0.
-> 
+>
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > device = torch.device("cuda:0" if use_cuda else "cpu")
 > > print("Device: ",device)

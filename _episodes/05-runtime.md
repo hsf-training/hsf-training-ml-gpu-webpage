@@ -17,7 +17,7 @@ keypoints:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/N-TirUNwl00" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-In this lesson we will consider different ways of measuring performance and draw comparisons between training a model on the CPU and training it on the GPU. 
+In this lesson we will consider different ways of measuring performance and draw comparisons between training a model on the CPU and training it on the GPU.
 
 # Model performance
 
@@ -34,9 +34,9 @@ However, remember that if you have made your predictions using the model on the 
 
 > ## Challenge
 > Check the performance of the model you trained on the GPU and compare it to the same model trained on the CPU.
-> 
+>
 > > ## Solution
-> > You shouldn't see any difference in the performance of the two models. 
+> > You shouldn't see any difference in the performance of the two models.
 > {: .solution}
 {: .challenge}
 
@@ -46,7 +46,7 @@ Although there are different ways to evaluate the computational performance of y
 
 ### Calculating run time
 
-An easy way to determine the run time for a particular section of code is to use the [Python time library](https://docs.python.org/3/library/time.html#time.time). 
+An easy way to determine the run time for a particular section of code is to use the [Python time library](https://docs.python.org/3/library/time.html#time.time).
 
 ~~~
 import time
@@ -85,35 +85,35 @@ print("Run time [s]: ",end-start)
 ~~~
 {: .language-python}
 
-This is because processes on a GPU run *asynchronously*. This means that when we send a process to the GPU it doesn't necessarily run immediately, instead it joins a queue. By calling the `torch.cuda.synchronize` function before specifying the `end` of our timing test, we can ensure that all of the processes on the GPU have actually run before we calculate the run time. 
+This is because processes on a GPU run *asynchronously*. This means that when we send a process to the GPU it doesn't necessarily run immediately, instead it joins a queue. By calling the `torch.cuda.synchronize` function before specifying the `end` of our timing test, we can ensure that all of the processes on the GPU have actually run before we calculate the run time.
 
 
 > ## Challenge
 > Calculate the run time for the GPU-enabled training loop in your code.
-> 
+>
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > model = model.to(device)
 > >
 > > start = time.time()
 > > for batch, (x_train, y_train) in enumerate(train_loader):
-> >         
+> >
 > >         x_train, y_train = x_train.to(device), y_train.to(device)
-> >         
+> >
 > >         model.zero_grad()
 > >         pred, prob = model(x_train)
-> >         
+> >
 > >         acc = (prob.argmax(dim=-1) == y_train).to(torch.float32).mean()
 > >         train_accs.append(acc.mean().item())
-> >         
+> >
 > >         loss = F.cross_entropy(pred, y_train)
 > >         train_loss.append(loss.item())
-> >        
+> >
 > >         loss.backward()
 > >         optimizer.step()
 > >
-> > if use_cuda: torch.cuda.synchronize()    
+> > if use_cuda: torch.cuda.synchronize()
 > > end = time.time()
 > > print("Run time [s]: ",end-start)
 > > ~~~
@@ -123,7 +123,7 @@ This is because processes on a GPU run *asynchronously*. This means that when we
 
 ### Network depth
 
-You'll quickly realise that the GPU-enabled loop doesn't really run that much faster than the normal training on CPU. That's because the neural network we've been using so far is *really really small* so the matrix multiplications on the CPU are just as fast as the ones we can do on the GPU. The figure below shows how big our network needs to be to make the GPU useful by increasing the number of artificial neurons in each of our hidden layers. 
+You'll quickly realise that the GPU-enabled loop doesn't really run that much faster than the normal training on CPU. That's because the neural network we've been using so far is *really really small* so the matrix multiplications on the CPU are just as fast as the ones we can do on the GPU. The figure below shows how big our network needs to be to make the GPU useful by increasing the number of artificial neurons in each of our hidden layers.
 
 ![GPU vs CPU](../plots/runtime_p100.png){:width="80%"}
 
@@ -131,9 +131,9 @@ We can see from the above plot that for our small network with only two hidden l
 
 > ## Challenge
 > Increase the number of neurons in the hidden layers of your network to 2000 and re-run your timing tests. How do the results look now?
-> 
+>
 > > ## Solution
-> > 
+> >
 > > ~~~
 > > hidden_size = 2000
 > > ~~~
@@ -142,5 +142,3 @@ We can see from the above plot that for our small network with only two hidden l
 > > You should see a difference in run time that is roughly 4 - 5 x faster with the GPU. The exact value will depend on what type of GPU you are using.
 > {: .solution}
 {: .challenge}
-
-
