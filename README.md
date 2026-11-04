@@ -22,9 +22,6 @@ This tutorial explores Machine Learning using GPU-enabled PyTorch for applicatio
 Emoji key: 🎥 (full video recordings available), ⛏️ (hackathon)
 
 ## 🤗 Contributing
-<!-- CENTRALLY MAINTAINED SECTION -->
-<!-- Remove the above marker to disable having this section be overwritten -->
-
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any
 questions, concerns, or experience any difficulties along the way.
 
@@ -70,7 +67,6 @@ Current maintainers of this lesson are
 * Anna Scaife
 
 
-<!-- END CENTRALLY MAINTAINED SECTION -->
 ## 💖 Authors
 
 <!-- If we have a primary author/maintainer, who kicked off the whole lessen etc, he should get a dedicated shoutout here -->

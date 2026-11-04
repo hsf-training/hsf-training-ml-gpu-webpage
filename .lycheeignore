@@ -1,0 +1,4 @@
+# Known broken links, left for the lesson maintainers to decide on
+# (see hsf-training/hsf-training-ai-maintenance#4).
+# Placeholder "Fixme Sample event" entry under "Past events" in README.md.
+^file://.*/indico\.cern\.ch/?$
